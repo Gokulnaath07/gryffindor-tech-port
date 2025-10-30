@@ -63,3 +63,111 @@ All colors MUST be HSL.
     @apply bg-background text-foreground;
   }
 }
+
+/* Interactive section overlay + proximity styles */
+@layer components {
+  .interactive-section {
+    position: relative;
+    /* CSS variables used by the JS proximity detector */
+    --mouse-x: 50%;
+    --mouse-y: 50%;
+    --accent-color: #d4af37; /* gold */
+  }
+
+  /* Pseudo element shows the cylindrical radial tint that follows the cursor */
+  .interactive-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    mix-blend-mode: screen;
+    background: radial-gradient(circle at var(--mouse-x) var(--mouse-y), rgba(212,175,55,0.25) 0%, rgba(212,175,55,0.12) 8%, transparent 20%);
+    transition: background-color 200ms linear, opacity 200ms linear;
+    will-change: background-position, opacity;
+    border-radius: inherit;
+    animation: cylindrical-shift 6s linear infinite;
+  }
+
+  /* When the proximity detector marks the section as near, change the accent to red */
+  .interactive-section[data-proximity="near"] {
+    --accent-color: #ff4b4b; /* near -> red */
+  }
+
+  /* Use the accent variable to color commonly tinted elements inside the section.
+     These rules are intentionally specific so they override inline Tailwind shadows for the tint. */
+  /* Example: highlight decorative borders and gradients using the accent variable */
+  .interactive-section .border-secondary {
+    border-color: var(--accent-color) !important;
+  }
+
+  .interactive-section .text-secondary {
+    color: var(--accent-color) !important;
+  }
+
+  @keyframes cylindrical-shift {
+    0% {
+      transform: rotateY(0deg) translateZ(0);
+      opacity: 0.9;
+    }
+    50% {
+      transform: rotateY(180deg) translateZ(6px);
+      opacity: 0.7;
+    }
+    100% {
+      transform: rotateY(360deg) translateZ(0);
+      opacity: 0.9;
+    }
+  }
+
+  /* Centered Explore CTA */
+  .explore-button {
+    position: absolute;
+    left: 50%;
+    bottom: 10%;
+    transform: translateX(-50%);
+    z-index: 40;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1.25rem;
+    min-width: 140px;
+    height: 68px;
+    border-radius: 9999px;
+    background: rgba(10, 10, 10, 0.55);
+  color: #ff4b4b; /* red text only */
+  border: 1px solid rgba(212,175,55,0.22); /* gold border */
+  box-shadow: 0 0 30px rgba(212,175,55,0.18), inset 0 0 12px rgba(0,0,0,0.45); /* gold glow */
+    backdrop-filter: blur(6px);
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    animation: blink-explore 1.6s ease-in-out infinite;
+    transition: transform 160ms ease, box-shadow 160ms ease;
+  }
+
+  .explore-button .explore-text {
+    letter-spacing: 0.6px;
+  }
+
+  .explore-button:hover {
+    transform: translateX(-50%) scale(1.03);
+    box-shadow: 0 0 40px rgba(212,175,55,0.32), inset 0 0 14px rgba(0,0,0,0.45); /* gold glow on hover */
+  }
+
+  @keyframes blink-explore {
+    0% {
+      box-shadow: 0 0 10px rgba(212,175,55,0.95), 0 0 28px rgba(212,175,55,0.25); /* bright gold */
+      transform: translateX(-50%) scale(1);
+    }
+    50% {
+      box-shadow: 0 0 6px rgba(212,175,55,0.55), 0 0 14px rgba(212,175,55,0.12); /* softer gold */
+      transform: translateX(-50%) scale(0.99);
+    }
+    100% {
+      box-shadow: 0 0 10px rgba(212,175,55,0.95), 0 0 28px rgba(212,175,55,0.25);
+      transform: translateX(-50%) scale(1);
+    }
+  }
+}

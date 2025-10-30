@@ -1,6 +1,7 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Shield, Database, Rocket, TestTube, Brain, Download } from "lucide-react";
+import useScrollAnimation from "@/hooks/use-scroll-animation";
 
 const About = () => {
   const highlights = [
@@ -31,8 +32,16 @@ const About = () => {
     },
   ];
 
+  const { ref, isVisible } = useScrollAnimation<HTMLElement>(0.2);
   return (
-    <section id="about" className="py-20 bg-muted/30">
+    <section
+      ref={ref}
+      id="about"
+      className={`py-20 bg-muted/30 interactive-section transition-all duration-1000 ${
+        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+      }`}
+      data-proximity="far"
+    >
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12 animate-fade-in">
@@ -57,12 +66,7 @@ const About = () => {
                 I'm currently interning at <span className="text-secondary font-semibold">AriesView as a Software Engineering Intern</span> contributing across frontend, backend, DB management, and automation testing. I'm actively learning RAG to grow toward an AI Engineer role.
               </p>
 
-              <Button variant="hero" className="mt-4" asChild>
-                <a href="/resume.pdf" download>
-                  <Download size={16} />
-                  Download Resume
-                </a>
-              </Button>
+              
             </div>
 
             <div className="grid grid-cols-1 gap-4">

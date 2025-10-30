@@ -27,7 +27,8 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden interactive-section"
+      data-proximity="far"
     >
       {/* Background */}
       <div
@@ -102,15 +103,7 @@ const Hero = () => {
                 </Button>
               </div>
 
-              {/* Scroll Indicator */}
-              <button
-                onClick={() => scrollToSection("about")}
-                className="inline-flex flex-col items-center text-muted-foreground hover:text-secondary transition-colors animate-pulse-glow lg:ml-0"
-                aria-label="Scroll to about section"
-              >
-                <span className="text-sm mb-2">Explore</span>
-                <ArrowDown size={24} />
-              </button>
+              {/* Scroll Indicator (moved to centered CTA) */}
             </div>
 
             {/* Profile Image */}
@@ -134,6 +127,16 @@ const Hero = () => {
           </div>
         </div>
       </div>
+
+      {/* Centered Explore CTA (pulsing/blinking gold pill) */}
+      <button
+        onClick={() => scrollToSection("about")}
+        className="explore-button"
+        aria-label="Explore - scroll to about"
+      >
+        <span className="explore-text">Explore</span>
+        <ArrowDown size={20} className="ml-2" />
+      </button>
     </section>
   );
 };

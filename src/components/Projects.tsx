@@ -2,6 +2,7 @@ import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ExternalLink, Github, FileText } from "lucide-react";
+import useScrollAnimation from "@/hooks/use-scroll-animation";
 
 const Projects = () => {
   const projects = [
@@ -12,6 +13,8 @@ const Projects = () => {
         "Android app using Logistic Regression + Random Forest for condition prediction; contributed to 15% reduction in unnecessary doctor visits (study context).",
       metrics: ["88% accuracy", "15% reduction in doctor visits"],
       tech: ["Android", "Machine Learning", "Python", "Logistic Regression", "Random Forest", "Dask", "Pandas"],
+      githubUrl:
+        "https://github.com/Gokulnaath07/MachineLearning/tree/main/Multiple%20Disease%20Prediction",
     },
     {
       title: "Navigation-Based Web Application",
@@ -20,6 +23,8 @@ const Projects = () => {
         "Full-stack web application with Spring Boot REST APIs and PostgreSQL on AWS RDS, deployed via Railway and Docker.",
       metrics: ["+60% client-server efficiency", "+50% query performance", "−60% deployment time"],
       tech: ["Spring Boot", "PostgreSQL", "AWS RDS", "Docker", "Railway", "Netlify", "REST APIs"],
+      githubUrl: "https://github.com/Gokulnaath07/Geosyncra_Backend",
+      githubUrlFrontend: "https://github.com/Gokulnaath07/Frontend_geoSyncra",
     },
     {
       title: "Game Character Balancing with ML & RL",
@@ -28,19 +33,34 @@ const Projects = () => {
         "Supervised learning (RF/DT/LogReg) combined with custom reinforcement learning environment using DQN to balance game characters.",
       metrics: ["88% classification accuracy", "35% reduction in win-rate variance"],
       tech: ["Python", "PyTorch", "Reinforcement Learning", "DQN", "Random Forest", "Decision Tree"],
+      githubUrl:
+        "https://github.com/Gokulnaath07/MachineLearning/tree/main/FinalProject",
     },
     {
-      title: "Head-Mounted Augmented Reality Display",
-      period: "Dec 2021 – Nov 2022",
+      title: "Hanni's Home Tour - VR Escape Experience",
+      period: "Jan 2024 – Apr 2024",
       description:
-        "AR HMD via Pepper's Ghost technique with AR applications for children, improving study interest significantly.",
-      metrics: ["16.85% lower production cost", "50%+ increase in study interest"],
-      tech: ["AR", "Hardware", "Pepper's Ghost", "Educational Tech"],
+        "VR-based interactive experience set in a procedurally generated haunted house. You were a previous client of Hannibal who is a psychiatrist and a sociopathic cannibal. You plan to get and use tools to escape from there.",
+      metrics: ["Full VR immersion", "Procedural generation", "Interactive puzzle mechanics"],
+      tech: ["Unity", "Blender", "VR", "C#", "Procedural Generation"],
+      driveUrl:
+        "https://drive.google.com/drive/folders/1P7X_pQ0f9-ohoycVYiC9XKpIzxHx-Tbi",
+      caseStudyUrl:
+        "https://docs.google.com/document/d/1H9A_wg1QvMP5Vs8sv4TUut4Ei_JZbQb0/edit?usp=drive_link&ouid=107306715248065629975&rtpof=true&sd=true",
     },
   ];
 
+  const { ref, isVisible } = useScrollAnimation<HTMLDivElement>(0.2);
+
   return (
-    <section id="projects" className="py-20">
+    <section
+      ref={ref as any}
+      id="projects"
+      className={`py-20 interactive-section transition-all duration-1000 ${
+        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+      }`}
+      data-proximity="far"
+    >
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12 animate-fade-in">
@@ -104,18 +124,52 @@ const Projects = () => {
                 </div>
 
                 <div className="flex gap-2 mt-4">
-                  <Button variant="outline" size="sm" className="flex-1" disabled>
-                    <Github size={14} />
-                    Code
-                  </Button>
-                  <Button variant="outline" size="sm" className="flex-1" disabled>
-                    <ExternalLink size={14} />
-                    Demo
-                  </Button>
-                  <Button variant="outline" size="sm" className="flex-1" disabled>
-                    <FileText size={14} />
-                    Case Study
-                  </Button>
+                  {project.githubUrl && (
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      className="flex-1 hover:border-secondary/50 hover:text-secondary transition-colors"
+                      onClick={() => window.open(project.githubUrl as string, "_blank")}
+                    >
+                      <Github size={14} />
+                      {project.githubUrlFrontend ? "Backend" : "Code"}
+                    </Button>
+                  )}
+                  {project.githubUrlFrontend && (
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      className="flex-1 hover:border-secondary/50 hover:text-secondary transition-colors"
+                      onClick={() => window.open(project.githubUrlFrontend as string, "_blank")}
+                    >
+                      <Github size={14} />
+                      Frontend
+                    </Button>
+                  )}
+                  {!project.githubUrl && project.driveUrl && (
+                    <>
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        className="flex-1 hover:border-secondary/50 hover:text-secondary transition-colors"
+                        onClick={() => window.open(project.driveUrl as string, "_blank")}
+                      >
+                        <ExternalLink size={14} />
+                        Game Files
+                      </Button>
+                      {project.caseStudyUrl && (
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          className="flex-1 hover:border-secondary/50 hover:text-secondary transition-colors"
+                          onClick={() => window.open(project.caseStudyUrl as string, "_blank")}
+                        >
+                          <FileText size={14} />
+                          Case Study
+                        </Button>
+                      )}
+                    </>
+                  )}
                 </div>
               </Card>
             ))}

@@ -8,6 +8,7 @@ import { Mail, Phone, MapPin, Linkedin, Github } from "lucide-react";
 import { toast } from "sonner";
 import emailjs from "@emailjs/browser";
 import { z } from "zod";
+import useScrollAnimation from "@/hooks/use-scroll-animation";
 
 const contactSchema = z.object({
   name: z.string().trim().min(1, "Name is required").max(100, "Name must be less than 100 characters"),
@@ -91,8 +92,16 @@ const Contact = () => {
     },
   ];
 
+  const { ref, isVisible } = useScrollAnimation<HTMLElement>(0.2);
   return (
-    <section id="contact" className="py-20 bg-muted/30">
+    <section
+      ref={ref}
+      id="contact"
+      className={`py-20 bg-muted/30 interactive-section transition-all duration-1000 ${
+        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+      }`}
+      data-proximity="far"
+    >
       <div className="container mx-auto px-4">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12 animate-fade-in">

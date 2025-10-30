@@ -1,5 +1,6 @@
 import { Card } from "@/components/ui/card";
 import { GraduationCap, Calendar } from "lucide-react";
+import useScrollAnimation from "@/hooks/use-scroll-animation";
 
 const Education = () => {
   const education = [
@@ -17,8 +18,16 @@ const Education = () => {
     },
   ];
 
+  const { ref, isVisible } = useScrollAnimation<HTMLElement>(0.2);
   return (
-    <section id="education" className="py-20">
+    <section
+      ref={ref}
+      id="education"
+      className={`py-20 interactive-section transition-all duration-1000 ${
+        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+      }`}
+      data-proximity="far"
+    >
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12 animate-fade-in">
