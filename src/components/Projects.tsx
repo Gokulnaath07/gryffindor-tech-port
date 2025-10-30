@@ -12,6 +12,7 @@ const Projects = () => {
         "Android app using Logistic Regression + Random Forest for condition prediction; contributed to 15% reduction in unnecessary doctor visits (study context).",
       metrics: ["88% accuracy", "15% reduction in doctor visits"],
       tech: ["Android", "Machine Learning", "Python", "Logistic Regression", "Random Forest", "Dask", "Pandas"],
+      githubUrl: "https://github.com/Gokulnaath07/MachineLearning/tree/main/Multiple%20Disease%20Prediction",
     },
     {
       title: "Navigation-Based Web Application",
@@ -20,6 +21,8 @@ const Projects = () => {
         "Full-stack web application with Spring Boot REST APIs and PostgreSQL on AWS RDS, deployed via Railway and Docker.",
       metrics: ["+60% client-server efficiency", "+50% query performance", "−60% deployment time"],
       tech: ["Spring Boot", "PostgreSQL", "AWS RDS", "Docker", "Railway", "Netlify", "REST APIs"],
+      githubUrl: "https://github.com/Gokulnaath07/Geosyncra_Backend",
+      githubUrlFrontend: "https://github.com/Gokulnaath07/Frontend_geoSyncra",
     },
     {
       title: "Game Character Balancing with ML & RL",
@@ -28,6 +31,7 @@ const Projects = () => {
         "Supervised learning (RF/DT/LogReg) combined with custom reinforcement learning environment using DQN to balance game characters.",
       metrics: ["88% classification accuracy", "35% reduction in win-rate variance"],
       tech: ["Python", "PyTorch", "Reinforcement Learning", "DQN", "Random Forest", "Decision Tree"],
+      githubUrl: "https://github.com/Gokulnaath07/MachineLearning/tree/main/FinalProject",
     },
     {
       title: "Head-Mounted Augmented Reality Display",
@@ -104,18 +108,44 @@ const Projects = () => {
                 </div>
 
                 <div className="flex gap-2 mt-4">
-                  <Button variant="outline" size="sm" className="flex-1" disabled>
-                    <Github size={14} />
-                    Code
-                  </Button>
-                  <Button variant="outline" size="sm" className="flex-1" disabled>
-                    <ExternalLink size={14} />
-                    Demo
-                  </Button>
-                  <Button variant="outline" size="sm" className="flex-1" disabled>
-                    <FileText size={14} />
-                    Case Study
-                  </Button>
+                  {project.githubUrl && (
+                    <Button 
+                      variant="outline" 
+                      size="sm" 
+                      className="flex-1 hover:border-secondary/50 hover:text-secondary transition-colors" 
+                      onClick={() => window.open(project.githubUrl, '_blank')}
+                    >
+                      <Github size={14} />
+                      {project.githubUrlFrontend ? "Backend" : "Code"}
+                    </Button>
+                  )}
+                  {project.githubUrlFrontend && (
+                    <Button 
+                      variant="outline" 
+                      size="sm" 
+                      className="flex-1 hover:border-secondary/50 hover:text-secondary transition-colors" 
+                      onClick={() => window.open(project.githubUrlFrontend, '_blank')}
+                    >
+                      <Github size={14} />
+                      Frontend
+                    </Button>
+                  )}
+                  {!project.githubUrl && (
+                    <>
+                      <Button variant="outline" size="sm" className="flex-1" disabled>
+                        <Github size={14} />
+                        Code
+                      </Button>
+                      <Button variant="outline" size="sm" className="flex-1" disabled>
+                        <ExternalLink size={14} />
+                        Demo
+                      </Button>
+                      <Button variant="outline" size="sm" className="flex-1" disabled>
+                        <FileText size={14} />
+                        Case Study
+                      </Button>
+                    </>
+                  )}
                 </div>
               </Card>
             ))}

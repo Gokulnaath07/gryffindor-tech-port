@@ -105,11 +105,11 @@ const Hero = () => {
               {/* Scroll Indicator */}
               <button
                 onClick={() => scrollToSection("about")}
-                className="inline-flex flex-col items-center text-muted-foreground hover:text-secondary transition-colors animate-pulse-glow lg:ml-0"
+                className="group inline-flex flex-col items-center gap-2 px-6 py-4 rounded-full border-2 border-secondary/30 bg-secondary/5 hover:bg-secondary/10 hover:border-secondary/60 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(212,175,55,0.3)] animate-pulse-glow lg:ml-0"
                 aria-label="Scroll to about section"
               >
-                <span className="text-sm mb-2">Explore</span>
-                <ArrowDown size={24} />
+                <span className="text-sm font-semibold text-secondary group-hover:text-secondary tracking-wider">Explore</span>
+                <ArrowDown className="text-secondary animate-bounce" size={20} />
               </button>
             </div>
 
