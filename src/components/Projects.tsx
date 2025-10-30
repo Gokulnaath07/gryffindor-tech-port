@@ -29,10 +29,12 @@ const Projects = () => {
   }, {
     title: "Hanni's Home Tour - VR Escape Experience",
     period: "Jan 2024 – Apr 2024",
-    description: "VR-based interactive experience set in a procedurally generated haunted house. Escape from Hannibal's residence by finding and using tools strategically placed throughout the environment.",
+    description: "VR-based interactive experience set in a procedurally generated haunted house. You were a previous client of Hannibal who is a psychiatrist and a sociopathic cannibal. You plan to get and use tools to escape from there.",
     metrics: ["Full VR immersion", "Procedural generation", "Interactive puzzle mechanics"],
     tech: ["Unity", "Blender", "VR", "C#", "Procedural Generation"],
-    image: vrGameImage
+    image: vrGameImage,
+    driveUrl: "https://drive.google.com/drive/folders/1P7X_pQ0f9-ohoycVYiC9XKpIzxHx-Tbi",
+    caseStudyUrl: "https://docs.google.com/document/d/1H9A_wg1QvMP5Vs8sv4TUut4Ei_JZbQb0/edit?usp=drive_link&ouid=107306715248065629975&rtpof=true&sd=true"
   }];
   return <section id="projects" className="py-20">
       <div className="container mx-auto px-4">
@@ -95,20 +97,30 @@ const Projects = () => {
                       <Github size={14} />
                       Frontend
                     </Button>}
-                  {!project.githubUrl && <>
-                      <Button variant="outline" size="sm" className="flex-1" disabled>
-                        <Github size={14} />
-                        Code
-                      </Button>
-                      <Button variant="outline" size="sm" className="flex-1" disabled>
+                  {!project.githubUrl && project.driveUrl && (
+                    <>
+                      <Button 
+                        variant="outline" 
+                        size="sm" 
+                        className="flex-1 hover:border-secondary/50 hover:text-secondary transition-colors" 
+                        onClick={() => window.open(project.driveUrl, '_blank')}
+                      >
                         <ExternalLink size={14} />
-                        Demo
+                        Game Files
                       </Button>
-                      <Button variant="outline" size="sm" className="flex-1" disabled>
-                        <FileText size={14} />
-                        Case Study
-                      </Button>
-                    </>}
+                      {project.caseStudyUrl && (
+                        <Button 
+                          variant="outline" 
+                          size="sm" 
+                          className="flex-1 hover:border-secondary/50 hover:text-secondary transition-colors" 
+                          onClick={() => window.open(project.caseStudyUrl, '_blank')}
+                        >
+                          <FileText size={14} />
+                          Case Study
+                        </Button>
+                      )}
+                    </>
+                  )}
                 </div>
               </Card>)}
           </div>

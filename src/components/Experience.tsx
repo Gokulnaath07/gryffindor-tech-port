@@ -94,7 +94,7 @@ const Experience = () => {
                     <Badge
                       key={tech}
                       variant="outline"
-                      className="border-secondary/30 text-foreground hover:bg-secondary/10"
+                      className="border-secondary/30 text-foreground hover:bg-secondary hover:text-destructive hover:border-secondary transition-colors"
                     >
                       {tech}
                     </Badge>
