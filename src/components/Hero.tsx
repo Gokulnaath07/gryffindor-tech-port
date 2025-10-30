@@ -30,14 +30,9 @@ const Hero = () => {
     <section
       ref={ref}
       id="home"
-<<<<<<< HEAD
-      className="relative min-h-screen flex items-center justify-center overflow-hidden interactive-section"
-      data-proximity="far"
-=======
       className={`relative min-h-screen flex items-center justify-center overflow-hidden transition-all duration-1000 ${
-        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
       }`}
->>>>>>> 7fc7a0ec442d544334b98c8f74db737ee228b1e8
     >
       {/* Background */}
       <div
@@ -112,10 +107,7 @@ const Hero = () => {
                 </Button>
               </div>
 
-<<<<<<< HEAD
               {/* Scroll Indicator (moved to centered CTA) */}
-=======
->>>>>>> 7fc7a0ec442d544334b98c8f74db737ee228b1e8
             </div>
 
             {/* Profile Image */}

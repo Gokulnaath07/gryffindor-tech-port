@@ -1,8 +1,4 @@
 import { Card } from "@/components/ui/card";
-<<<<<<< HEAD
-import { GraduationCap, Calendar } from "lucide-react";
-import useScrollAnimation from "@/hooks/use-scroll-animation";
-=======
 import { GraduationCap, Calendar, University, Building2, MapPin } from "lucide-react";
 import {
   Popover,
@@ -16,10 +12,8 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
->>>>>>> 7fc7a0ec442d544334b98c8f74db737ee228b1e8
 
 const Education = () => {
-  const { ref, isVisible } = useScrollAnimation(0.2);
   const education = [
     {
       degree: "Master of Science in Computer Science",
@@ -41,22 +35,12 @@ const Education = () => {
 
   const { ref, isVisible } = useScrollAnimation<HTMLElement>(0.2);
   return (
-<<<<<<< HEAD
     <section
       ref={ref}
       id="education"
-      className={`py-20 interactive-section transition-all duration-1000 ${
+      className={`py-20 transition-all duration-1000 ${
         isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
       }`}
-      data-proximity="far"
-=======
-    <section 
-      ref={ref}
-      id="education" 
-      className={`py-20 transition-all duration-1000 ${
-        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-      }`}
->>>>>>> 7fc7a0ec442d544334b98c8f74db737ee228b1e8
     >
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">

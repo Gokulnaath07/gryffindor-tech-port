@@ -1,14 +1,9 @@
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Briefcase, MapPin, Calendar } from "lucide-react";
-<<<<<<< HEAD
-import useScrollAnimation from "@/hooks/use-scroll-animation";
-=======
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
->>>>>>> 7fc7a0ec442d544334b98c8f74db737ee228b1e8
 
 const Experience = () => {
-  const { ref, isVisible } = useScrollAnimation(0.2);
   const experiences = [
     {
       company: "AriesView",
@@ -50,22 +45,12 @@ const Experience = () => {
 
   const { ref, isVisible } = useScrollAnimation<HTMLElement>(0.2);
   return (
-<<<<<<< HEAD
     <section
       ref={ref}
       id="experience"
-      className={`py-20 bg-muted/30 interactive-section transition-all duration-1000 ${
+      className={`py-20 bg-muted/30 transition-all duration-1000 ${
         isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
       }`}
-      data-proximity="far"
-=======
-    <section 
-      ref={ref}
-      id="experience" 
-      className={`py-20 bg-muted/30 transition-all duration-1000 ${
-        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-      }`}
->>>>>>> 7fc7a0ec442d544334b98c8f74db737ee228b1e8
     >
       <div className="container mx-auto px-4">
         <div className="max-w-5xl mx-auto">
