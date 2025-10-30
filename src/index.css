@@ -86,11 +86,12 @@ All colors MUST be HSL.
     pointer-events: none;
     z-index: 0;
     mix-blend-mode: screen;
-    background: radial-gradient(circle at var(--mouse-x) var(--mouse-y), rgba(212,175,55,0.25) 0%, rgba(212,175,55,0.12) 8%, transparent 20%);
-    transition: background-color 200ms linear, opacity 200ms linear;
+    /* reduced radius and opacity for a subtler effect */
+    background: radial-gradient(circle at var(--mouse-x) var(--mouse-y), rgba(212,175,55,0.18) 0%, rgba(212,175,55,0.08) 6%, transparent 12%);
+    transition: background-color 160ms linear, opacity 160ms linear;
     will-change: background-position, opacity;
     border-radius: inherit;
-    animation: cylindrical-shift 6s linear infinite;
+    animation: cylindrical-shift 8s linear infinite;
   }
 
   /* When the proximity detector marks the section as near, change the accent to red */
@@ -112,15 +113,16 @@ All colors MUST be HSL.
   @keyframes cylindrical-shift {
     0% {
       transform: rotateY(0deg) translateZ(0);
-      opacity: 0.9;
+      opacity: 0.92;
     }
     50% {
-      transform: rotateY(180deg) translateZ(6px);
-      opacity: 0.7;
+      /* much smaller rotation to keep effect subtle */
+      transform: rotateY(10deg) translateZ(3px);
+      opacity: 0.75;
     }
     100% {
-      transform: rotateY(360deg) translateZ(0);
-      opacity: 0.9;
+      transform: rotateY(0deg) translateZ(0);
+      opacity: 0.92;
     }
   }
 

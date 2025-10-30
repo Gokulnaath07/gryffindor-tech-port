@@ -13,7 +13,7 @@ const Index = () => {
   return (
     <div className="min-h-screen">
       <Navigation />
-      <main>
+      <main className="interactive-section" data-proximity="far">
         <Hero />
         <About />
         <Skills />

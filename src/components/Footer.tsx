@@ -1,4 +1,4 @@
-import { Github, Linkedin, Mail } from "lucide-react";
+import { Linkedin, Mail } from "lucide-react";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -19,7 +19,7 @@ const Footer = () => {
               className="text-muted-foreground hover:text-secondary transition-colors"
               aria-label="GitHub"
             >
-              <Github size={20} />
+              <img src="https://cdn.simpleicons.org/github/000000" alt="GitHub" style={{ width: 20, height: 20 }} />
             </a>
             <a
               href="https://linkedin.com/in/gokulnaathg/"

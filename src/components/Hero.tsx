@@ -41,7 +41,7 @@ const Hero = () => {
           backgroundImage: `url(${heroBg})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
-          opacity: 0.15,
+          opacity: 0.45,
         }}
       />
       <div className="absolute inset-0 bg-gradient-to-b from-background via-background/95 to-background z-0" />
@@ -118,11 +118,11 @@ const Hero = () => {
                   <div className="absolute inset-0 rounded-full bg-gradient-to-r from-secondary via-secondary to-transparent" style={{ clipPath: 'polygon(0 0, 50% 0, 50% 100%, 0 100%)' }} />
                   <div className="absolute inset-0 rounded-full bg-gradient-to-l from-red-600 via-red-600 to-transparent" style={{ clipPath: 'polygon(50% 0, 100% 0, 100% 100%, 50% 100%)' }} />
                   
-                  <div className="w-full h-full rounded-full overflow-hidden bg-background relative">
+                  <div className="w-full h-full rounded-full overflow-hidden bg-background relative cylindrical-fade animate">
                     <img
                       src={profileImage}
                       alt="Gokulnaath Govindaraj - Backend & Software Engineer"
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 cyl-img"
                     />
                   </div>
                 </div>
@@ -140,22 +140,14 @@ const Hero = () => {
               className="group inline-flex flex-col items-center gap-2 px-8 py-5 rounded-full border-2 border-secondary/30 bg-gradient-to-br from-secondary/10 to-red-600/10 hover:from-secondary/20 hover:to-red-600/20 hover:border-secondary/60 transition-all duration-300 hover:scale-110 hover:shadow-[0_0_40px_rgba(212,175,55,0.4),0_0_30px_rgba(220,38,38,0.3)] animate-pulse-glow"
               aria-label="Scroll to about section"
             >
-              <span className="text-base font-bold text-secondary group-hover:text-secondary tracking-wider">Explore</span>
-              <ArrowDown className="text-secondary animate-bounce" size={24} />
+              <span className="text-base font-bold text-red-600 group-hover:text-red-700 tracking-wider">Explore</span>
+              <ArrowDown className="text-red-600 animate-bounce" size={24} />
             </button>
           </div>
         </div>
       </div>
 
-      {/* Centered Explore CTA (pulsing/blinking gold pill) */}
-      <button
-        onClick={() => scrollToSection("about")}
-        className="explore-button"
-        aria-label="Explore - scroll to about"
-      >
-        <span className="explore-text">Explore</span>
-        <ArrowDown size={20} className="ml-2" />
-      </button>
+      {/* single centered Explore CTA preserved above; duplicate pulsing CTA removed during merge resolution */}
     </section>
   );
 };

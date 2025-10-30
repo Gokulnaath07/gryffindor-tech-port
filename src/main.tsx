@@ -8,7 +8,8 @@ createRoot(document.getElementById("root")!).render(<App />);
 
 // start the proximity detector (returns a stop function if needed)
 try {
-	startProximity({ threshold: 220 });
+	// reduced threshold so the overlay only becomes 'near' when the cursor is closer
+	startProximity({ threshold: 140 });
 } catch (e) {
 	// safe guard for SSR or environments where window isn't available
 	// no-op on error

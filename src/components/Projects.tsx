@@ -1,7 +1,7 @@
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { ExternalLink, Github, FileText } from "lucide-react";
+import { ExternalLink, FileText } from "lucide-react";
 import vrGameImage from "@/assets/vr-game.png";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
@@ -45,7 +45,6 @@ const Projects = () => {
         "VR-based interactive experience set in a procedurally generated haunted house.",
       metrics: ["Full VR immersion", "Procedural generation", "Interactive puzzle mechanics"],
       tech: ["Unity", "Blender", "VR", "C#", "Procedural Generation"],
-      image: vrGameImage,
       driveUrl:
         "https://drive.google.com/drive/folders/1P7X_pQ0f9-ohoycVYiC9XKpIzxHx-Tbi",
       caseStudyUrl:
@@ -81,11 +80,11 @@ const Projects = () => {
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 <div className="flex-1">
-                  {project.image && (
+                  {/* {project.image && (
                     <div className="mb-4 rounded-lg overflow-hidden">
                       <img src={project.image} alt={project.title} className="w-full h-48 object-cover rounded-md" />
                     </div>
-                  )}
+                  )} */}
 
                   <div className="flex items-start justify-between mb-3">
                     <h3 className="text-xl font-bold text-foreground leading-tight">{project.title}</h3>
@@ -119,15 +118,15 @@ const Projects = () => {
 
                 <div className="flex gap-2 mt-4">
                   {project.githubUrl && (
-                    <Button variant="outline" size="sm" className="flex-1 hover:border-secondary/50 hover:text-secondary transition-colors" onClick={() => window.open(project.githubUrl as string, "_blank")}>
-                      <Github size={14} />
+                    <Button variant="outline" size="sm" className="flex-1 hover:border-secondary/50 hover:text-secondary transition-colors" onClick={() => window.open(project.githubUrl as string, "_blank")}> 
+                      <img src="https://cdn.simpleicons.org/github/000000" alt="GitHub" style={{ width: 14, height: 14 }} className="inline-block mr-2" />
                       {project.githubUrlFrontend ? "Backend" : "Code"}
                     </Button>
                   )}
 
                   {project.githubUrlFrontend && (
-                    <Button variant="outline" size="sm" className="flex-1 hover:border-secondary/50 hover:text-secondary transition-colors" onClick={() => window.open(project.githubUrlFrontend as string, "_blank")}>
-                      <Github size={14} />
+                    <Button variant="outline" size="sm" className="flex-1 hover:border-secondary/50 hover:text-secondary transition-colors" onClick={() => window.open(project.githubUrlFrontend as string, "_blank")}> 
+                      <img src="https://cdn.simpleicons.org/github/000000" alt="GitHub" style={{ width: 14, height: 14 }} className="inline-block mr-2" />
                       Frontend
                     </Button>
                   )}
