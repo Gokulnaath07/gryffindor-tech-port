@@ -3,8 +3,10 @@ import { Badge } from "@/components/ui/badge";
 import { ArrowDown } from "lucide-react";
 import heroBg from "@/assets/hero-bg.jpg";
 import profileImage from "@/assets/profile.jpg";
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
 const Hero = () => {
+  const { ref, isVisible } = useScrollAnimation(0.1);
   const skills = [
     "Java",
     "Spring Boot",
@@ -26,8 +28,11 @@ const Hero = () => {
 
   return (
     <section
+      ref={ref}
       id="home"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      className={`relative min-h-screen flex items-center justify-center overflow-hidden transition-all duration-1000 ${
+        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+      }`}
     >
       {/* Background */}
       <div

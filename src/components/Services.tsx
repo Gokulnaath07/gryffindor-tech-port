@@ -1,7 +1,9 @@
 import { Card } from "@/components/ui/card";
 import { Server, Database, Container, TestTube2, Eye, Cloud } from "lucide-react";
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
 const Services = () => {
+  const { ref, isVisible } = useScrollAnimation(0.2);
   const services = [
     {
       icon: Server,
@@ -36,7 +38,13 @@ const Services = () => {
   ];
 
   return (
-    <section id="services" className="py-20 bg-muted/30">
+    <section 
+      ref={ref}
+      id="services" 
+      className={`py-20 bg-muted/30 transition-all duration-1000 ${
+        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+      }`}
+    >
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12 animate-fade-in">

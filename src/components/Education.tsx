@@ -11,8 +11,10 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
 const Education = () => {
+  const { ref, isVisible } = useScrollAnimation(0.2);
   const education = [
     {
       degree: "Master of Science in Computer Science",
@@ -33,7 +35,13 @@ const Education = () => {
   ];
 
   return (
-    <section id="education" className="py-20">
+    <section 
+      ref={ref}
+      id="education" 
+      className={`py-20 transition-all duration-1000 ${
+        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+      }`}
+    >
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12 animate-fade-in">

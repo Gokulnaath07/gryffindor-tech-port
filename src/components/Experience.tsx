@@ -1,8 +1,10 @@
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Briefcase, MapPin, Calendar } from "lucide-react";
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
 const Experience = () => {
+  const { ref, isVisible } = useScrollAnimation(0.2);
   const experiences = [
     {
       company: "AriesView",
@@ -43,7 +45,13 @@ const Experience = () => {
   ];
 
   return (
-    <section id="experience" className="py-20 bg-muted/30">
+    <section 
+      ref={ref}
+      id="experience" 
+      className={`py-20 bg-muted/30 transition-all duration-1000 ${
+        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+      }`}
+    >
       <div className="container mx-auto px-4">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12 animate-fade-in">

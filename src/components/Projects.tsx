@@ -3,7 +3,9 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ExternalLink, Github, FileText } from "lucide-react";
 import vrGameImage from "@/assets/vr-game.png";
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 const Projects = () => {
+  const { ref, isVisible } = useScrollAnimation(0.2);
   const projects = [{
     title: "Multiple Disease Prediction Android App with ML",
     period: "Jan 2024 – Apr 2024",
@@ -36,7 +38,13 @@ const Projects = () => {
     driveUrl: "https://drive.google.com/drive/folders/1P7X_pQ0f9-ohoycVYiC9XKpIzxHx-Tbi",
     caseStudyUrl: "https://docs.google.com/document/d/1H9A_wg1QvMP5Vs8sv4TUut4Ei_JZbQb0/edit?usp=drive_link&ouid=107306715248065629975&rtpof=true&sd=true"
   }];
-  return <section id="projects" className="py-20">
+  return <section 
+    ref={ref}
+    id="projects" 
+    className={`py-20 transition-all duration-1000 ${
+      isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+    }`}
+  >
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12 animate-fade-in">
