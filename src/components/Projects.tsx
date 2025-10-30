@@ -2,6 +2,7 @@ import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ExternalLink, Github, FileText } from "lucide-react";
+import vrGameImage from "@/assets/vr-game.png";
 
 const Projects = () => {
   const projects = [
@@ -34,12 +35,13 @@ const Projects = () => {
       githubUrl: "https://github.com/Gokulnaath07/MachineLearning/tree/main/FinalProject",
     },
     {
-      title: "Head-Mounted Augmented Reality Display",
-      period: "Dec 2021 – Nov 2022",
+      title: "Hanni's Home Tour - VR Escape Experience",
+      period: "Jan 2024 – Apr 2024",
       description:
-        "AR HMD via Pepper's Ghost technique with AR applications for children, improving study interest significantly.",
-      metrics: ["16.85% lower production cost", "50%+ increase in study interest"],
-      tech: ["AR", "Hardware", "Pepper's Ghost", "Educational Tech"],
+        "VR-based interactive experience set in a procedurally generated haunted house. Escape from Hannibal's residence by finding and using tools strategically placed throughout the environment.",
+      metrics: ["Full VR immersion", "Procedural generation", "Interactive puzzle mechanics"],
+      tech: ["Unity", "Blender", "VR", "C#", "Procedural Generation"],
+      image: vrGameImage,
     },
   ];
 
@@ -65,6 +67,16 @@ const Projects = () => {
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 <div className="flex-1">
+                  {project.image && (
+                    <div className="mb-4 rounded-lg overflow-hidden">
+                      <img 
+                        src={project.image} 
+                        alt={project.title}
+                        className="w-full h-48 object-cover"
+                      />
+                    </div>
+                  )}
+                  
                   <div className="flex items-start justify-between mb-3">
                     <h3 className="text-xl font-bold text-foreground leading-tight">
                       {project.title}
