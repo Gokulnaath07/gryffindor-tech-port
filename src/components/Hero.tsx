@@ -118,11 +118,11 @@ const Hero = () => {
                   <div className="absolute inset-0 rounded-full bg-gradient-to-r from-secondary via-secondary to-transparent" style={{ clipPath: 'polygon(0 0, 50% 0, 50% 100%, 0 100%)' }} />
                   <div className="absolute inset-0 rounded-full bg-gradient-to-l from-red-600 via-red-600 to-transparent" style={{ clipPath: 'polygon(50% 0, 100% 0, 100% 100%, 50% 100%)' }} />
                   
-                  <div className="w-full h-full rounded-full overflow-hidden bg-background relative cylindrical-fade animate">
+                  <div className="w-full h-full rounded-full overflow-hidden bg-background relative">
                     <img
                       src={profileImage}
                       alt="Gokulnaath Govindaraj - Backend & Software Engineer"
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 cyl-img"
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                     />
                   </div>
                 </div>
