@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { useEffect, useRef, useState } from "react";
 
 export function useScrollAnimation<T extends HTMLElement = HTMLElement>(
@@ -31,3 +32,35 @@ export function useScrollAnimation<T extends HTMLElement = HTMLElement>(
 }
 
 export default useScrollAnimation;
+=======
+import { useEffect, useRef, useState } from 'react';
+
+export const useScrollAnimation = (threshold = 0.1) => {
+  const ref = useRef<HTMLElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold }
+    );
+
+    const currentRef = ref.current;
+    if (currentRef) {
+      observer.observe(currentRef);
+    }
+
+    return () => {
+      if (currentRef) {
+        observer.unobserve(currentRef);
+      }
+    };
+  }, [threshold]);
+
+  return { ref, isVisible };
+};
+>>>>>>> 7fc7a0ec442d544334b98c8f74db737ee228b1e8

@@ -3,8 +3,10 @@ import { Badge } from "@/components/ui/badge";
 import { ArrowDown } from "lucide-react";
 import heroBg from "@/assets/hero-bg.jpg";
 import profileImage from "@/assets/profile.jpg";
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
 const Hero = () => {
+  const { ref, isVisible } = useScrollAnimation(0.1);
   const skills = [
     "Java",
     "Spring Boot",
@@ -26,9 +28,16 @@ const Hero = () => {
 
   return (
     <section
+      ref={ref}
       id="home"
+<<<<<<< HEAD
       className="relative min-h-screen flex items-center justify-center overflow-hidden interactive-section"
       data-proximity="far"
+=======
+      className={`relative min-h-screen flex items-center justify-center overflow-hidden transition-all duration-1000 ${
+        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+      }`}
+>>>>>>> 7fc7a0ec442d544334b98c8f74db737ee228b1e8
     >
       {/* Background */}
       <div
@@ -103,27 +112,45 @@ const Hero = () => {
                 </Button>
               </div>
 
+<<<<<<< HEAD
               {/* Scroll Indicator (moved to centered CTA) */}
+=======
+>>>>>>> 7fc7a0ec442d544334b98c8f74db737ee228b1e8
             </div>
 
             {/* Profile Image */}
             <div className="relative animate-fade-in order-1 lg:order-2" style={{ animationDelay: "200ms" }}>
-              <div className="relative mx-auto w-72 h-72 sm:w-96 sm:h-96 lg:w-[450px] lg:h-[450px]">
-                {/* Glowing border effect */}
-                <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary via-secondary to-primary animate-gradient-shift bg-[length:200%_200%] p-1">
-                  <div className="w-full h-full rounded-full overflow-hidden bg-background">
+              <div className="relative mx-auto w-72 h-72 sm:w-96 sm:h-96 lg:w-[450px] lg:h-[450px] group">
+                {/* Gryffindor-style ring: half gold, half red with glow */}
+                <div className="absolute inset-0 rounded-full p-1 transition-all duration-500 group-hover:scale-105 group-hover:shadow-[0_0_40px_rgba(212,175,55,0.6),0_0_60px_rgba(220,38,38,0.4)]">
+                  <div className="absolute inset-0 rounded-full bg-gradient-to-r from-secondary via-secondary to-transparent" style={{ clipPath: 'polygon(0 0, 50% 0, 50% 100%, 0 100%)' }} />
+                  <div className="absolute inset-0 rounded-full bg-gradient-to-l from-red-600 via-red-600 to-transparent" style={{ clipPath: 'polygon(50% 0, 100% 0, 100% 100%, 50% 100%)' }} />
+                  
+                  <div className="w-full h-full rounded-full overflow-hidden bg-background relative">
                     <img
                       src={profileImage}
                       alt="Gokulnaath Govindaraj - Backend & Software Engineer"
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                     />
                   </div>
                 </div>
                 {/* Decorative elements */}
-                <div className="absolute -top-4 -right-4 w-20 h-20 border-2 border-secondary rounded-full opacity-50" />
-                <div className="absolute -bottom-4 -left-4 w-16 h-16 border-2 border-primary rounded-full opacity-50" />
+                <div className="absolute -top-4 -right-4 w-20 h-20 border-2 border-secondary rounded-full opacity-50 group-hover:opacity-100 transition-opacity" />
+                <div className="absolute -bottom-4 -left-4 w-16 h-16 border-2 border-red-600 rounded-full opacity-50 group-hover:opacity-100 transition-opacity" />
               </div>
             </div>
+          </div>
+
+          {/* Centered Scroll Indicator */}
+          <div className="flex justify-center mt-16">
+            <button
+              onClick={() => scrollToSection("about")}
+              className="group inline-flex flex-col items-center gap-2 px-8 py-5 rounded-full border-2 border-secondary/30 bg-gradient-to-br from-secondary/10 to-red-600/10 hover:from-secondary/20 hover:to-red-600/20 hover:border-secondary/60 transition-all duration-300 hover:scale-110 hover:shadow-[0_0_40px_rgba(212,175,55,0.4),0_0_30px_rgba(220,38,38,0.3)] animate-pulse-glow"
+              aria-label="Scroll to about section"
+            >
+              <span className="text-base font-bold text-secondary group-hover:text-secondary tracking-wider">Explore</span>
+              <ArrowDown className="text-secondary animate-bounce" size={24} />
+            </button>
           </div>
         </div>
       </div>

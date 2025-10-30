@@ -1,8 +1,13 @@
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+<<<<<<< HEAD
 import useScrollAnimation from "@/hooks/use-scroll-animation";
+=======
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
+>>>>>>> 7fc7a0ec442d544334b98c8f74db737ee228b1e8
 
 const Skills = () => {
+  const { ref, isVisible } = useScrollAnimation(0.2);
   const skillCategories = [
     {
       title: "Languages",
@@ -32,6 +37,7 @@ const Skills = () => {
 
   const { ref, isVisible } = useScrollAnimation<HTMLElement>(0.2);
   return (
+<<<<<<< HEAD
     <section
       ref={ref}
       id="skills"
@@ -39,6 +45,14 @@ const Skills = () => {
         isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
       }`}
       data-proximity="far"
+=======
+    <section 
+      ref={ref}
+      id="skills" 
+      className={`py-20 transition-all duration-1000 ${
+        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+      }`}
+>>>>>>> 7fc7a0ec442d544334b98c8f74db737ee228b1e8
     >
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
