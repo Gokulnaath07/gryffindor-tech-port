@@ -86,8 +86,7 @@ const Projects = () => {
       ],
       tech: [
         "Java", "Spring Boot", "Spring Security", "JPA/Hibernate",
-        "PostgreSQL", "MongoDB", "JWT"
-      ],
+        "PostgreSQL", "MongoDB", "JWT"],
       githubUrl: "https://github.com/Gokulnaath07/TaskManager"
     },
     {
