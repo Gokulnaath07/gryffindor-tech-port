@@ -6,41 +6,69 @@ import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 const Experience = () => {
   const experiences = [
     {
-      company: "AriesView",
-      role: "Software Engineering Intern",
-      period: "Aug 2025 – Present",
-      location: "Boston, MA (Remote/Hybrid acceptable)",
-      achievements: [
-        "Co-developed Node.js/Express REST APIs and Python/Flask financial-calculation microservice; improved response time by 45% and maintainability by 30%",
-        "Delivered Financial Hub with Next.js/React/TypeScript (Tailwind); enhanced page performance by 35% and accessibility compliance by 50%",
-        "Built Playwright E2E suites with shared auth, role-based locators, and network assertions; raised reliability by 70%, reduced QA time by 40%",
-        "PR reviews, Docker images, GitLab CI pipelines; values stored in Dockerized PostgreSQL",
-      ],
-      tech: ["TypeScript", "React", "Next.js", "Node.js", "Python", "Flask", "Playwright", "Docker", "GitLab CI/CD", "PostgreSQL"],
-    },
-    {
-      company: "Porter Lee Corporation",
-      role: "Software Programming Intern",
-      period: "May 2024 – Aug 2024",
-      location: "Schaumburg, IL",
-      achievements: [
-        "Backend services for Android-based Evidence Management System (Java); improved data processing speed/security by 55%",
-        "Designed secure REST APIs with advanced authz/authn; boosted data exchange efficiency by 40%, reduced unauthorized access attempts by 90%",
-        "Debugging/troubleshooting + comprehensive API/system/deployment docs; decreased critical issues by 60%, cut onboarding time by 35%",
-      ],
-      tech: ["Java", "Spring Boot", "REST APIs", "PostgreSQL", "Android", "AWS"],
-    },
-    {
-      company: "Accelerate UConn NSF I-Corps Program",
-      role: "Technical Team Lead",
-      period: "Aug 2024 – Sept 2024",
-      location: "University of Connecticut",
-      achievements: [
-        "Led technical planning for peer mentoring platform using Hugging Face-powered LLM via Spring Boot + Spring AI",
-        "Conducted customer discovery and co-authored proposal for NSF I-Corps",
-      ],
-      tech: ["Spring Boot", "Spring AI", "Hugging Face", "LLM"],
-    },
+  company: "AriesView",
+  role: "Software Engineering Intern",
+  period: "Aug 2025 – Present",
+  location: "Boston, MA",
+  achievements: [
+    "Co-developed Node.js/Express REST APIs and Python/Flask financial-calculation microservice; improved response time by 45% and maintainability by 30%",
+    "Delivered Financial Hub with Next.js/React/TypeScript (Tailwind); enhanced page performance by 35% and accessibility compliance by 50%",
+    "Built Playwright E2E suites with shared auth, role-based locators, and network assertions; raised reliability by 70%, reduced QA time by 40%",
+    "PR reviews, Docker images, GitLab CI pipelines; values stored in Dockerized PostgreSQL"
+  ],
+  tech: ["TypeScript", "React", "Next.js", "Node.js", "Python", "Flask", "Playwright", "Docker", "GitLab CI/CD", "PostgreSQL"]
+},
+{
+  company: "Accelerate UConn NSF I-Corps Program",
+  role: "Technical Team Lead",
+  period: "Aug 2024 – Sept 2024",
+  location: "University of Connecticut",
+  achievements: [
+    "Led technical planning for peer mentoring platform using Hugging Face-powered LLM via Spring Boot + Spring AI",
+    "Conducted customer discovery and co-authored proposal for NSF I-Corps"
+  ],
+  tech: ["Spring Boot", "Spring AI", "Hugging Face", "LLM"]
+},
+{
+  company: "Porter Lee Corporation",
+  role: "Software Programming Intern",
+  period: "May 2024 – Aug 2024",
+  location: "Schaumburg, IL",
+  achievements: [
+    "Backend services for Android-based Evidence Management System (Java); improved data processing speed/security by 55%",
+    "Designed secure REST APIs with advanced authz/authn; boosted data exchange efficiency by 40%, reduced unauthorized access attempts by 90%",
+    "Debugging/troubleshooting + comprehensive API/system/deployment docs; decreased critical issues by 60%, cut onboarding time by 35%"
+  ],
+  tech: ["Java", "Spring Boot", "REST APIs", "PostgreSQL", "Android", "AWS"]
+},
+{
+  company: "Wright State University – Office of Disability Services (ODS)",
+  role: "Personal Assistant",
+  period: "Jan 2024 – Present",
+  location: "Dayton, OH",
+  achievements: [
+    "Assist a student with physical disabilities during lectures and lab sessions by providing mobility support and helping navigate the campus environment",
+    "Set up classroom or lab materials as needed to ensure safe and comfortable participation in all scheduled sessions",
+    "Coordinate with ODS staff to address logistical needs and ensure smooth day-to-day access to facilities",
+    "Maintain a respectful and supportive presence, prioritizing the student’s independence, comfort, and dignity"
+  ],
+  tech: ["Accessibility Support", "Logistics Coordination", "Communication"]
+},
+{
+  company: "Cognizant",
+  role: "Programmer Analyst Trainee",
+  period: "Oct 2022 – Dec 2022",
+  location: "Chennai, Tamil Nadu, India",
+  achievements: [
+    "Completed intensive training in Core Java, Selenium, XML, and JavaScript with a focus on OOP and automated testing",
+    "Developed and executed Selenium test scripts for web applications, validating user flows and improving test coverage",
+    "Gained hands-on experience in test case design, automation frameworks, and debugging for end-to-end reliability",
+    "Collaborated in real-world QA simulations to enhance application stability and process efficiency"
+  ],
+  tech: ["Java", "Selenium", "JavaScript", "XML", "Automation Testing", "OOP"]
+}
+
+
   ];
 
   const { ref, isVisible } = useScrollAnimation<HTMLElement>(0.2);

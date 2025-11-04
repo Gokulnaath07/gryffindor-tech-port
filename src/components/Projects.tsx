@@ -9,12 +9,26 @@ const Projects = () => {
   const { ref, isVisible } = useScrollAnimation<HTMLDivElement>(0.2);
   const projects = [
     {
-      title: "Multiple Disease Prediction Android App with ML",
+      title: "Multi‑Disease Prediction + Doctor Matching",
       period: "Jan 2024 – Apr 2024",
       description:
-        "Android app using Logistic Regression + Random Forest for condition prediction; contributed to 15% reduction in unnecessary doctor visits (study context).",
-      metrics: ["88% accuracy", "15% reduction in doctor visits"],
-      tech: ["Android", "Machine Learning", "Python", "Logistic Regression", "Random Forest", "Dask", "Pandas"],
+        "Built an end‑to‑end ML pipeline: EDA → feature engineering → model training & comparison (LogReg/RandomForest/others) → best‑model selection → REST API for inference. The service predicts likely conditions and maps them to doctor specialties; responses are returned via a GET endpoint (tested in Postman). Also integrated with an Android client.",
+      metrics: [
+        "End‑to‑end ML pipeline",
+        "Doctor matching by specialty",
+        "REST API inference",
+        "Model comparison & selection",
+      ],
+      tech: [
+        "Python",
+        "scikit‑learn",
+        "Dask (parallel)",
+        "Pandas",
+        "NumPy",
+        "Flask",
+        "Postman",
+        "Android",
+      ],
       githubUrl:
         "https://github.com/Gokulnaath07/MachineLearning/tree/main/Multiple%20Disease%20Prediction",
     },
@@ -50,6 +64,94 @@ const Projects = () => {
       caseStudyUrl:
         "https://docs.google.com/document/d/1H9A_wg1QvMP5Vs8sv4TUut4Ei_JZbQb0/edit?usp=drive_link&ouid=107306715248065629975&rtpof=true&sd=true",
     },
+    {
+      title: "Personal Portfolio Website",
+      period: "Nov 2025 – Present",
+      description:
+        "Built a personal portfolio website to showcase my projects and skills.",
+      metrics: ["Responsive design", "SEO optimization", "Interactive elements"],
+      tech: ["React", "Next.js", "Tailwind CSS", "JavaScript"],
+      githubUrl: "https://github.com/Gokulnaath07/gryffindor-tech-port",
+    },
+    {
+      title: "TaskManager",
+      period: "Jun 2025 – Present",
+      description:
+        "Built a production-ready task management backend with JWT-secured APIs, role-based access, and file uploads for task assets. Uses PostgreSQL for core data and MongoDB (GridFS) for images/documents.",
+      metrics: [
+        "JWT auth + RBAC",
+        "CRUD + search/pagination",
+        "File uploads to GridFS",
+        
+      ],
+      tech: [
+        "Java", "Spring Boot", "Spring Security", "JPA/Hibernate",
+        "PostgreSQL", "MongoDB", "JWT"
+      ],
+      githubUrl: "https://github.com/Gokulnaath07/TaskManager"
+    },
+    {
+      title: "NYC Airbnb Price & Demand Modeling",
+      period: "2024",
+      description:
+        "Built an end-to-end ML workflow to predict listing prices and classify high-demand listings. Performed data cleaning, feature engineering (encoding, review time features), and model selection (Linear/Random Forest for price; Logistic/Random Forest for demand). Added Prophet time-series forecasts of monthly prices and Folium maps for listing distribution, price heatmap, and demand hotspots.",
+      metrics: [
+        "Train/val/test splits with RMSE/R² & classification report",
+        "Feature importance analysis",
+        "Interactive maps (distribution, heatmap, demand)"
+      ],
+      tech: [
+        "Python","Pandas","NumPy","scikit-learn",
+        "RandomForest","Linear/Logistic Regression",
+        "Prophet","Matplotlib","Seaborn","Folium"
+      ],
+      githubUrl: "https://github.com/Gokulnaath07/MachineLearning/tree/main/Project"
+    },
+    {
+      title: "Game Pathfinding Algorithms (A* & BFS)",
+      period: "2024",
+      description:
+        "Implemented and compared A* and Breadth-First Search (BFS) algorithms for intelligent pathfinding in grid-based games. Designed modular Python scripts to simulate puzzle and movement logic, optimizing traversal efficiency, heuristic evaluation, and decision-making accuracy in game AI scenarios.",
+      metrics: [
+        "Developed reusable A* and BFS modules for grid navigation",
+        "Improved pathfinding efficiency with heuristic tuning",
+        "Visualized and tested algorithm performance on sample maps"
+      ],
+      tech: [
+        "Python", "A* Algorithm", "BFS", "Pathfinding", "Game AI", "OOP", "Heuristics"
+      ],
+      githubUrl: "https://github.com/Gokulnaath07/Games"
+    },
+    {
+      title: "Blackjack Web Game",
+      period: "2024",
+      description:
+        "Created an interactive Blackjack game with a simple web interface that handles deck shuffling, card dealing, score calculation, and win/loss logic. Designed a clean and responsive page to provide an engaging user experience while accurately following classic Blackjack rules.",
+      metrics: [
+        "Implemented full game logic for player vs dealer",
+        "Built responsive front-end for real-time play",
+        "Handled deck, score, and restart functionality"
+      ],
+      tech: [
+        "HTML", "CSS", "JavaScript"
+      ],
+      githubUrl: "https://github.com/Gokulnaath07/Blackjack_man"
+    },
+    {
+      title: "Spiderman Counter Web App",
+      period: "2024",
+      description:
+        "Developed a fun and interactive web counter inspired by Spider-Man’s theme. Designed a responsive interface with simple button interactions for increment, decrement, and reset functionality, showcasing DOM manipulation and clean front-end design principles.",
+      metrics: [
+        "Built responsive UI with themed styling",
+        "Implemented real-time counter updates via DOM manipulation",
+        "Enhanced usability with smooth transitions and reset logic"
+      ],
+      tech: [
+        "HTML", "CSS", "JavaScript"
+      ],
+      githubUrl: "https://github.com/Gokulnaath07/Spiderman_counter"
+    }
   ];
 
   return (
@@ -108,7 +210,11 @@ const Projects = () => {
                   <div className="mb-4">
                     <div className="flex flex-wrap gap-2">
                       {project.tech.map((tech) => (
-                        <Badge key={tech} variant="outline" className="border-border text-muted-foreground text-xs">
+                        <Badge
+                          key={tech}
+                          variant="outline"
+                          className="border-secondary/30 text-foreground hover:bg-secondary hover:text-destructive hover:border-secondary transition-colors text-xs"
+                        >
                           {tech}
                         </Badge>
                       ))}

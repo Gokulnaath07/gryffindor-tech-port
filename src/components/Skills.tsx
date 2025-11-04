@@ -4,30 +4,75 @@ import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
 const Skills = () => {
   const skillCategories = [
+    // 1) Core programming first
     {
       title: "Languages",
-      skills: ["Java", "Python", "JavaScript", "SQL", "HTML", "CSS"],
+      skills: ["Java", "TypeScript", "JavaScript", "Python", "SQL", "HTML", "CSS"],
     },
+    // 2) Web/backend frameworks next
     {
-      title: "Frameworks & Platforms",
-      skills: ["Spring Boot", "Flask", "Android (Java)", "React", "TypeScript", "Next.js"],
+      title: "Frameworks & Libraries",
+      skills: ["Spring Boot", "Flask", "React", "Next.js"],
     },
+    // 3) AI/ML early to showcase interest and edge
     {
-      title: "Version Control & DevOps",
-      skills: ["Git", "Docker", "AWS (RDS)", "Railway"],
+      title: "AI/ML",
+      skills: [
+        "RAG",
+        "LLMs",
+        "scikit-learn",
+        "Dask (parallel)",
+        "Pandas",
+        "NumPy",
+        "Matplotlib",
+        "PyTorch",
+        "Logistic Regression",
+        "Random Forest",
+        "Decision Trees",
+        "RL (DQN)",
+        "SVM"
+      ],
     },
+    // 4) Data layer
     {
       title: "Databases",
       skills: ["PostgreSQL", "MongoDB", "MySQL"],
     },
+    // 4.1) Analytics & statistics tooling
     {
-      title: "IDE & Tools",
-      skills: ["Jira", "Postman", "JUnit", "Playwright", "Selenium"],
+      title: "Data Analysis & Statistics",
+      skills: ["IBM SPSS Statistics"],
     },
+    // 5) Delivery & platform
     {
-      title: "Methodologies",
-      skills: ["Agile (Scrum)", "Kanban", "CI/CD", "OOP", "RESTful APIs", "SDLC", "RAG"],
+      title: "DevOps & Cloud",
+      skills: ["Docker", "GitHub Actions", "GitLab CI/CD", "AWS (RDS)", "Railway"],
     },
+    // 6) Source control separately
+    {
+      title: "Version Control",
+      skills: ["Git", "GitHub", "GitLab"],
+    },
+    // 7) Quality
+    {
+      title: "Testing & QA",
+      skills: ["JUnit", "Playwright", "Selenium", "Postman"],
+    },
+    // 8) Practices
+    {
+      title: "Architecture & Practices",
+      skills: ["Agile (Scrum)", "Kanban", "CI/CD", "OOP", "RESTful APIs", "SDLC"],
+    },
+    // 9) XR/3D (separate from AI/ML)
+    {
+      title: "XR/3D",
+      skills: ["Unity", "Blender"],
+    },
+    // 10) Platform specific (kept but lower priority)
+    {
+      title: "Mobile & Platforms",
+      skills: ["Android (Java)"]
+    }
   ];
 
   const { ref, isVisible } = useScrollAnimation<HTMLElement>(0.2);

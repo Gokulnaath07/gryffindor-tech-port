@@ -1,5 +1,5 @@
 import { Card } from "@/components/ui/card";
-import { GraduationCap, Calendar, University, Building2, MapPin } from "lucide-react";
+import { GraduationCap, Calendar, University, MapPin } from "lucide-react";
 import {
   Popover,
   PopoverContent,
@@ -21,15 +21,15 @@ const Education = () => {
       period: "Aug 2023 – Dec 2025 (Expected)",
       location: "Dayton, Ohio",
       icon: University,
-      iconLabel: "University",
+      iconLabel: "WSU",
     },
     {
       degree: "Bachelor of Engineering in Mechatronics Engineering",
       school: "Chennai Institute of Technology",
       period: "Aug 2018 – Apr 2022",
       location: "Chennai, India",
-      icon: Building2,
-      iconLabel: "Institute",
+      icon: University,
+      iconLabel: "Anna University",
     },
   ];
 

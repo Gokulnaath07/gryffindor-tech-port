@@ -1,6 +1,6 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Shield, Database, Rocket, TestTube, Brain, Download } from "lucide-react";
+import { Shield, Database, Rocket, TestTube, Brain, Box, Download } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
 const About = () => {
@@ -31,6 +31,11 @@ const About = () => {
       title: "ML & RAG Exploration",
       description: "Leveraging LLMs and Retrieval-Augmented Generation for innovative solutions",
     },
+    {
+      icon: Box,
+      title: "VR/AR & 3D Experiences",
+      description: "End-to-end immersive apps with 3D design, animation, and interactive UX",
+    },
   ];
 
   return (
@@ -53,19 +58,21 @@ const About = () => {
           <div className="grid lg:grid-cols-2 gap-8 mb-12">
             <div className="space-y-4 animate-fade-in">
               <p className="text-muted-foreground leading-relaxed">
-                I'm a <span className="text-foreground font-semibold">Master's student in Computer Science</span> at Wright State University, with hands-on experience in backend development, API design, and machine learning. I bring{" "}
-                <span className="text-secondary font-semibold">1.5 years of combined academic and internship experience</span>, including a remote Programming Internship at PorterLee Corporation building secure, scalable backend systems for an Android-based evidence management platform.
+                I started in <span className="text-foreground font-semibold">Mechatronics</span>—building <span className="text-foreground font-semibold">line followers and mini AGVs</span> for fun—then fell in love with the software that makes hardware feel alive. Today I’m an <span className="text-foreground font-semibold">international CS Master’s student</span> at Wright State University who enjoys turning messy requirements into dependable systems and solving brain‑twisting problems with code.
               </p>
 
               <p className="text-muted-foreground leading-relaxed">
-                My toolkit: <span className="text-foreground font-semibold">Java, Spring Boot, Python, RESTful APIs, PostgreSQL, Docker, AWS (RDS), MongoDB</span>. I work in Agile teams and ship production-ready software across health tech, education, and real estate analytics.
+                Over the last <span className="text-secondary font-semibold">1.5 years</span>, I’ve worked across the stack through internships and projects—shipping APIs, data models, and deployments end‑to‑end. A favorite: helping build a secure, scalable backend for an Android evidence‑management platform at <span className="text-foreground font-semibold">PorterLee</span> (remote).
+                My toolkit: <span className="text-foreground font-semibold">Java & Spring Boot</span>, <span className="text-foreground font-semibold">Python</span>, <span className="text-foreground font-semibold">PostgreSQL/MongoDB</span>, <span className="text-foreground font-semibold">Docker & AWS (RDS)</span>, and <span className="text-foreground font-semibold">Playwright</span> for reliability. I’ve shipped to health tech, education, and real‑estate analytics.
               </p>
 
               <p className="text-muted-foreground leading-relaxed">
-                I'm currently interning at <span className="text-secondary font-semibold">AriesView as a Software Engineering Intern</span> contributing across frontend, backend, DB management, and automation testing. I'm actively learning RAG to grow toward an AI Engineer role.
+                Currently, I’m a <span className="text-secondary font-semibold">Software Engineering Intern at AriesView</span>, contributing across frontend, backend, databases, and automation. I’m actively learning <span className="text-foreground font-semibold">RAG</span> and modern LLM tooling to grow toward an AI‑focused engineer. I’m open to roles where I can deliver impact quickly—backend, platform, or AI‑enabled products.
               </p>
 
-              
+              <p className="text-muted-foreground leading-relaxed">
+                I also design and build <span className="text-foreground font-semibold">VR/AR applications</span> end‑to‑end — from <span className="text-foreground font-semibold">3D asset design and animation</span> to interaction models and performance tuning (Unity / Blender).
+              </p>
             </div>
 
             <div className="grid grid-cols-1 gap-4">
