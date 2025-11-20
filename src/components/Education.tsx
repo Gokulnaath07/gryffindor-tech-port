@@ -12,6 +12,7 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
+import { useState } from "react";
 
 const Education = () => {
   const education = [
@@ -22,6 +23,17 @@ const Education = () => {
       location: "Dayton, Ohio",
       icon: University,
       iconLabel: "WSU",
+        coursework: [
+          "Algorithms Design and Analysis",
+          "Machine Learning",
+          "Software Engineering",
+          "Information retrieval",
+          "Distributed Computing",
+          "Coding Theory",
+          "Reverse Engineering",
+          "Foundations of Data Science",
+          "Foundations of AI",
+        ],
     },
     {
       degree: "Bachelor of Engineering in Mechatronics",
@@ -56,26 +68,28 @@ const Education = () => {
               {education.map((edu, index) => {
                 const IconComponent = edu.icon;
                 return (
-                  <Card
+                  <Popover
                     key={index}
-                    className="p-6 border-l-4 border-l-secondary bg-card animate-fade-in hover:shadow-[0_0_20px_rgba(212,175,55,0.15)] transition-all duration-300"
-                    style={{ animationDelay: `${index * 150}ms` }}
+                    open={undefined}
                   >
-                    <div className="flex flex-col md:flex-row md:items-start md:justify-between">
-                      <div className="flex items-start gap-3 mb-2 md:mb-0">
-                        <div className="p-2 rounded-lg bg-secondary/10 mt-1">
-                          <GraduationCap className="text-secondary" size={20} />
-                        </div>
-                        <div>
-                          <h3 className="text-xl font-bold text-foreground mb-1">{edu.degree}</h3>
-                          <Popover>
-                            <PopoverTrigger asChild>
+                    <PopoverTrigger asChild>
+                      <Card
+                        className="p-6 border-l-4 border-l-secondary bg-card animate-fade-in hover:shadow-[0_0_20px_rgba(212,175,55,0.15)] transition-all duration-300 cursor-pointer"
+                        style={{ animationDelay: `${index * 150}ms` }}
+                      >
+                        <div className="flex flex-col md:flex-row md:items-start md:justify-between">
+                          <div className="flex items-start gap-3 mb-2 md:mb-0">
+                            <div className="p-2 rounded-lg bg-secondary/10 mt-1">
+                              <GraduationCap className="text-secondary" size={20} />
+                            </div>
+                            <div>
+                              <h3 className="text-xl font-bold text-foreground mb-1">{edu.degree}</h3>
                               <Tooltip>
                                 <TooltipTrigger asChild>
-                                  <button className="text-lg text-secondary font-semibold hover:text-secondary/80 transition-colors flex items-center gap-2 group">
+                                  <span className="text-lg text-secondary font-semibold flex items-center gap-2">
                                     {edu.school}
                                     <IconComponent size={18} className="opacity-0 group-hover:opacity-100 transition-opacity" />
-                                  </button>
+                                  </span>
                                 </TooltipTrigger>
                                 <TooltipContent>
                                   <div className="flex items-center gap-2">
@@ -84,41 +98,49 @@ const Education = () => {
                                   </div>
                                 </TooltipContent>
                               </Tooltip>
-                            </PopoverTrigger>
-                            <PopoverContent className="w-80">
-                              <div className="space-y-3">
-                                <div className="flex items-center gap-2 pb-2 border-b border-border">
-                                  <IconComponent className="text-secondary" size={20} />
-                                  <h4 className="font-semibold text-foreground">{edu.school}</h4>
-                                </div>
-                                <div className="space-y-2">
-                                  <div className="flex items-start gap-2">
-                                    <Calendar size={16} className="text-secondary mt-0.5" />
-                                    <div>
-                                      <p className="text-xs text-muted-foreground">Duration</p>
-                                      <p className="text-sm text-foreground">{edu.period}</p>
-                                    </div>
-                                  </div>
-                                  <div className="flex items-start gap-2">
-                                    <MapPin size={16} className="text-secondary mt-0.5" />
-                                    <div>
-                                      <p className="text-xs text-muted-foreground">Location</p>
-                                      <p className="text-sm text-foreground">{edu.location}</p>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </PopoverContent>
-                          </Popover>
-                          <p className="text-sm text-muted-foreground mt-1">{edu.location}</p>
+                              <p className="text-sm text-muted-foreground mt-1">{edu.location}</p>
+                            </div>
+                          </div>
+                          <div className="flex items-center gap-2 text-sm text-muted-foreground md:ml-4">
+                            <Calendar size={14} />
+                            {edu.period}
+                          </div>
+                        </div>
+                      </Card>
+                    </PopoverTrigger>
+                    <PopoverContent className="w-80">
+                      <div className="space-y-3">
+                        <div className="flex items-center gap-2 pb-2 border-b border-border">
+                          <IconComponent className="text-secondary" size={20} />
+                          <h4 className="font-semibold text-foreground">{edu.school}</h4>
+                        </div>
+                        <div className="space-y-2">
+                          <div className="flex items-start gap-2">
+                            <Calendar size={16} className="text-secondary mt-0.5" />
+                            <div>
+                              <p className="text-xs text-muted-foreground">Duration</p>
+                              <p className="text-sm text-foreground">{edu.period}</p>
+                            </div>
+                          </div>
+                          <div className="flex items-start gap-2">
+                            <MapPin size={16} className="text-secondary mt-0.5" />
+                            <div>
+                              <p className="text-xs text-muted-foreground">Location</p>
+                              <p className="text-sm text-foreground">{edu.location}</p>
+                            </div>
+                          </div>
+                          {edu.coursework && edu.coursework.length > 0 && (
+                            <div className="pt-1">
+                              <p className="text-xs text-muted-foreground">Relevant Coursework</p>
+                              <p className="text-sm text-foreground leading-relaxed">
+                                {edu.coursework.join(", ")}
+                              </p>
+                            </div>
+                          )}
                         </div>
                       </div>
-                      <div className="flex items-center gap-2 text-sm text-muted-foreground md:ml-4">
-                        <Calendar size={14} />
-                        {edu.period}
-                      </div>
-                    </div>
-                  </Card>
+                    </PopoverContent>
+                  </Popover>
                 );
               })}
             </div>
