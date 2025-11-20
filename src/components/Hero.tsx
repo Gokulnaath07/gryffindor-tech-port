@@ -136,9 +136,8 @@ const Hero = () => {
               </div>
             </div>
           </div>
-
-          {/* Centered Scroll Indicator */}
-          <div className="flex justify-center mt-16">
+            {/* Centered Scroll Indicator (now positioned above the bottom) */}
+          <div className="absolute left-1/2 transform -translate-x-1/2 bottom-28 md:bottom-20 z-20">
             <button
               onClick={() => scrollToSection("about")}
               className="group inline-flex flex-col items-center gap-2 px-8 py-5 rounded-full border-2 border-secondary/30 bg-gradient-to-br from-secondary/10 to-red-600/10 hover:from-secondary/20 hover:to-red-600/20 hover:border-secondary/60 transition-all duration-300 hover:scale-110 hover:shadow-[0_0_40px_rgba(212,175,55,0.4),0_0_30px_rgba(220,38,38,0.3)] animate-pulse-glow"

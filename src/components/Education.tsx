@@ -24,8 +24,8 @@ const Education = () => {
       iconLabel: "WSU",
     },
     {
-      degree: "Bachelor of Engineering in Mechatronics Engineering",
-      school: "Chennai Institute of Technology",
+      degree: "Bachelor of Engineering in Mechatronics",
+      school: "Anna University",
       period: "Aug 2018 – Apr 2022",
       location: "Chennai, India",
       icon: University,
