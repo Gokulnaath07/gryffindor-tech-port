@@ -44,7 +44,7 @@ const Experience = () => {
 {
   company: "Wright State University – Office of Disability Services (ODS)",
   role: "Personal Assistant",
-  period: "Jan 2024 – Present",
+  period: "Jan 2024 – Dec 2025",
   location: "Dayton, OH",
   achievements: [
     "Assist a student with physical disabilities during lectures and lab sessions by providing mobility support and helping navigate the campus environment",

@@ -9,6 +9,29 @@ const Projects = () => {
   const { ref, isVisible } = useScrollAnimation<HTMLDivElement>(0.2);
   const projects = [
     {
+      title: "State-of-the-Art NLP Model: BERT",
+      period: "Nov 2025 - Dec 2025",
+      description:"Implemented a full NLP workflow for sentiment classification on Twitter data: preprocessing, feature extraction (Bag-of-Words, TF-IDF), and model comparison. Trained two explainable models and two deep learning models (LSTM, BERT). BERT achieved top performance, showcasing expertise in PyTorch, Transformers, and NLP model evaluation.",
+      metrics : [
+        "End-to-end NLP pipeline: preprocessing, vectorization, and modeling",
+        "Model comparison: Logistic Regression, Decision Tree, LSTM, BERT",
+        "Evaluation with metrics: Accuracy 84%, Weighted F1-score 0.84",
+        "Handling real-world challenges: short tweets, sarcasm, and class imbalance",
+        "Deployment-ready: prepared for API inference or further integration"
+      ],
+      tech: [
+        "Python",
+        "Pandas, NumPy, Matplotlib, Seaborn",
+        "NLTK (stopwords, tokenization, stemming)",
+        "Scikit-learn (Logistic Regression, Decision Tree, TF-IDF, Bag-of-Words)",
+        "TensorFlow / Keras (LSTM)",
+        "PyTorch & Transformers (BERT)",
+        "Jupyter / Colab Notebook",
+        "Git & GitHub"
+      ],
+      githubUrl: "https://github.com/Gokulnaath07/MachineLearning/tree/main/NLP%20Project"
+    },
+    {
       title: "Multi‑Disease Prediction + Doctor Matching",
       period: "Jan 2024 – Apr 2024",
       description:
