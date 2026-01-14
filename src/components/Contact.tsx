@@ -75,7 +75,7 @@ const Contact = () => {
     {
       icon: MapPin,
       label: "Location",
-      value: "Fairborn, Ohio, US",
+      value: "Boston, MA, US",
       href: null,
     },
     {
