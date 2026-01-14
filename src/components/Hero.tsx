@@ -58,7 +58,7 @@ const Hero = () => {
             <div className="text-center lg:text-left animate-fade-in order-2 lg:order-1">
               <div className="mb-6">
                 <span className="text-secondary text-sm font-mono tracking-widest uppercase">
-                  Full-Stack Developer
+                  Backend & Applied AI Engineer
                 </span>
               </div>
 
@@ -69,13 +69,12 @@ const Hero = () => {
               </h1>
 
               <p className="text-xl md:text-2xl text-muted-foreground mb-4 font-semibold">
-                Backend & Software Engineer
+                Backend & Applied AI Engineer Engineer
               </p>
 
               <p className="text-base md:text-lg text-muted-foreground mb-8 max-w-3xl lg:mx-0 mx-auto leading-relaxed">
-                Master's student in Computer Science at Wright State University with 1.5 years combined
-                academic + internship experience across backend development, API design, automation
-                testing, and ML/RAG. Currently Software Engineering Intern at AriesView.
+                
+I build backend systems and production AI pipelines for real-world data focused on reliability, performance, and scale. Currently engineering RAG-powered document intelligence and high-throughput APIs at AriesView.
               </p>
 
               {/* Tech Stack Pills */}

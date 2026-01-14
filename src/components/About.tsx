@@ -1,40 +1,41 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Shield, Database, Rocket, TestTube, Brain, Box, Download } from "lucide-react";
+import { Brain, Database, Shield, Download, Mail, FolderKanban } from "lucide-react";
+import resumeUrl from "@/assets/Govindaraj_Resume_R1.pdf";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
 const About = () => {
   const { ref, isVisible } = useScrollAnimation<HTMLElement>(0.2);
-  const highlights = [
+
+  const heroHook =
+    "Backend + ML engineer building production systems designed for scale, reliability, and measurable impact.";
+
+  const aboutParagraphs = [
+    `I build backend systems and ML infrastructure that handle production scale. Currently at AriesView, where I've deployed RAG-powered document intelligence pipelines that cut hallucinations by 30%, built Node.js APIs processing 500+ concurrent financial queries with 90% fewer data errors, and containerized microservices that reduced developer setup time by 40%.`,
+    `My work includes hybrid retrieval systems (BM25 + vector search) with sub-200ms p99 latency, citation-grounded LLM outputs for financial documents, and PostgreSQL schemas designed for high-concurrency workloads. I've improved API performance by 20%, optimized database queries reducing p95 latency by 25%, and trained BERT-based classifiers hitting 84% F1 with proper cross-validation.`,
+    `Beyond the day job, I've built end-to-end ML systems—from NLP sentiment classifiers processing Twitter data with 84% weighted F1-score to medical prediction models with 85% clinician approval. I've also shipped full-stack platforms: geo-indexed navigation systems with optimized spatial queries, and Android evidence management APIs with JWT auth and async operations that improved sync reliability by 20%.`,
+    `I care about systems that stay up under load, that you can debug at 2am, and that don't become legacy nightmares six months later. Testing, monitoring, and documentation aren't optional—they're how you ship systems that actually scale.`,
+    `Finishing my MS in Computer Science at Wright State this December. Looking for Backend Software Engineer or ML Engineer roles building high-throughput systems that millions of people depend on.`,
+  ];
+
+  const whyMe = [
     {
-      icon: Shield,
-      title: "Secure APIs & Auth",
-      description: "Building robust authentication systems with 90% reduction in unauthorized access",
+      icon: Brain,
+      title: "Production ML at scale",
+      description:
+        "Architected end-to-end RAG pipelines with hybrid retrieval, vector search (Weaviate), and LLM orchestration—reducing error rates by 30% across financial workflows (evaluated on 1000+ query test sets).",
     },
     {
       icon: Database,
-      title: "Database Design & Performance",
-      description: "Optimizing queries and schemas for 50%+ performance improvements",
+      title: "Distributed systems experience",
+      description:
+        "Built REST APIs with transactional guarantees processing 500+ QPS, optimized database queries reducing p95 latency by 25%, and designed schemas for concurrent write-heavy workloads.",
     },
     {
-      icon: Rocket,
-      title: "Deployment & CI/CD",
-      description: "Docker + GitLab CI pipelines reducing deployment time by 60%",
-    },
-    {
-      icon: TestTube,
-      title: "Test Automation",
-      description: "Playwright E2E suites raising reliability by 70%, reducing QA time by 40%",
-    },
-    {
-      icon: Brain,
-      title: "ML & RAG Exploration",
-      description: "Leveraging LLMs and Retrieval-Augmented Generation for innovative solutions",
-    },
-    {
-      icon: Box,
-      title: "VR/AR & 3D Experiences",
-      description: "End-to-end immersive apps with 3D design, animation, and interactive UX",
+      icon: Shield,
+      title: "Engineering excellence",
+      description:
+        "Comprehensive testing (unit, integration, E2E with Playwright), CI/CD automation, API contracts (OpenAPI/Swagger), and observability—because systems that scale need instrumentation, not hope.",
     },
   ];
 
@@ -48,6 +49,7 @@ const About = () => {
     >
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
+          {/* Header */}
           <div className="text-center mb-12 animate-fade-in">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               About <span className="text-secondary">Me</span>
@@ -55,72 +57,94 @@ const About = () => {
             <div className="w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto" />
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-8 mb-12">
+          {/* Hero Hook */}
+          <Card className="p-5 border-border bg-card/70 mb-10">
+            <p className="text-lg md:text-xl font-semibold text-foreground leading-relaxed">
+              {heroHook}
+            </p>
+          </Card>
+
+          {/* Main grid (Summary + Why Me) */}
+          <div className="grid lg:grid-cols-2 gap-10 mb-10">
+            {/* LEFT: Summary */}
             <div className="space-y-4 animate-fade-in">
-              <p className="text-muted-foreground leading-relaxed">
-                I started in <span className="text-foreground font-semibold">Mechatronics</span>—building <span className="text-foreground font-semibold">line followers and mini AGVs</span> for fun—then fell in love with the software that makes hardware feel alive. Today I’m an <span className="text-foreground font-semibold">international CS Master’s student</span> at Wright State University who enjoys turning messy requirements into dependable systems and solving brain‑twisting problems with code.
-              </p>
+              <h3 className="text-xl font-semibold text-foreground">
+                Summary
+              </h3>
 
-              <p className="text-muted-foreground leading-relaxed">
-                Over the last <span className="text-secondary font-semibold">1.5 years</span>, I’ve worked across the stack through internships and projects—shipping APIs, data models, and deployments end‑to‑end. A favorite: helping build a secure, scalable backend for an Android evidence‑management platform at <span className="text-foreground font-semibold">PorterLee</span> (remote).
-                My toolkit: <span className="text-foreground font-semibold">Java & Spring Boot</span>, <span className="text-foreground font-semibold">Python</span>, <span className="text-foreground font-semibold">PostgreSQL/MongoDB</span>, <span className="text-foreground font-semibold">Docker & AWS (RDS)</span>, and <span className="text-foreground font-semibold">Playwright</span> for reliability. I’ve shipped to health tech, education, and real‑estate analytics.
-              </p>
-
-              <p className="text-muted-foreground leading-relaxed">
-                Currently, I’m a <span className="text-secondary font-semibold">Software Engineering Intern at AriesView</span>, contributing across frontend, backend, databases, and automation. I’m actively learning <span className="text-foreground font-semibold">RAG</span> and modern LLM tooling to grow toward an AI‑focused engineer. I’m open to roles where I can deliver impact quickly—backend, platform, or AI‑enabled products.
-              </p>
-
-              <p className="text-muted-foreground leading-relaxed">
-                I also design and build <span className="text-foreground font-semibold">VR/AR applications</span> end‑to‑end — from <span className="text-foreground font-semibold">3D asset design and animation</span> to interaction models and performance tuning (Unity / Blender).
-              </p>
+              {aboutParagraphs.map((p, idx) => (
+                <p key={idx} className="text-muted-foreground leading-relaxed">
+                  {p}
+                </p>
+              ))}
             </div>
 
-            <div className="grid grid-cols-1 gap-4">
-              {highlights.slice(0, 3).map((highlight, index) => {
-                const Icon = highlight.icon;
-                return (
-                  <Card
-                    key={index}
-                    className="p-4 border-border bg-card hover:border-secondary/50 transition-all duration-300 hover:shadow-[0_0_20px_rgba(212,175,55,0.2)] animate-fade-in"
-                    style={{ animationDelay: `${index * 100}ms` }}
-                  >
-                    <div className="flex items-start gap-3">
-                      <div className="p-2 rounded-lg bg-secondary/10">
-                        <Icon className="text-secondary" size={20} />
+            {/* RIGHT: Why Me */}
+            <div className="animate-fade-in">
+              <h3 className="text-xl font-semibold text-foreground mb-4">
+                Why <span className="text-secondary">Me</span>
+              </h3>
+
+              <div className="grid grid-cols-1 gap-4">
+                {whyMe.map((item, index) => {
+                  const Icon = item.icon;
+                  return (
+                    <Card
+                      key={index}
+                      className="p-4 border-border bg-card hover:border-secondary/50 transition-all duration-300 hover:shadow-[0_0_20px_rgba(212,175,55,0.2)] animate-fade-in"
+                      style={{ animationDelay: `${index * 100}ms` }}
+                    >
+                      <div className="flex items-start gap-3">
+                        <div className="p-2 rounded-lg bg-secondary/10">
+                          <Icon className="text-secondary" size={20} />
+                        </div>
+                        <div>
+                          <h4 className="font-semibold mb-1 text-foreground">{item.title}</h4>
+                          <p className="text-sm text-muted-foreground">{item.description}</p>
+                        </div>
                       </div>
-                      <div>
-                        <h3 className="font-semibold mb-1 text-foreground">{highlight.title}</h3>
-                        <p className="text-sm text-muted-foreground">{highlight.description}</p>
-                      </div>
-                    </div>
-                  </Card>
-                );
-              })}
+                    </Card>
+                  );
+                })}
+              </div>
             </div>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-4">
-            {highlights.slice(3).map((highlight, index) => {
-              const Icon = highlight.icon;
-              return (
-                <Card
-                  key={index}
-                  className="p-4 border-border bg-card hover:border-secondary/50 transition-all duration-300 hover:shadow-[0_0_20px_rgba(212,175,55,0.2)] animate-fade-in"
-                  style={{ animationDelay: `${(index + 3) * 100}ms` }}
-                >
-                  <div className="flex items-start gap-3">
-                    <div className="p-2 rounded-lg bg-secondary/10">
-                      <Icon className="text-secondary" size={20} />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold mb-1 text-foreground">{highlight.title}</h3>
-                      <p className="text-sm text-muted-foreground">{highlight.description}</p>
-                    </div>
-                  </div>
-                </Card>
-              );
-            })}
-          </div>
+          {/* CTA BLOCK (separate, clear) */}
+          <Card className="p-5 border-border bg-card/70 animate-fade-in">
+            <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+              <div>
+                <h3 className="text-lg font-semibold text-foreground">Let’s talk</h3>
+                <p className="text-sm text-muted-foreground">
+                  Explore my systems design projects below, review my technical resume, or let’s discuss building
+                  infrastructure that scales.
+                </p>
+              </div>
+
+              <div className="flex flex-col sm:flex-row gap-3">
+                <Button asChild className="gap-2">
+                  <a href="#projects">
+                    <FolderKanban size={18} />
+                    View Projects
+                  </a>
+                </Button>
+
+                <Button asChild variant="secondary" className="gap-2">
+                  <a href={resumeUrl} target="_blank" rel="noreferrer">
+                    <Download size={18} />
+                    Resume
+                  </a>
+                </Button>
+
+                <Button asChild variant="outline" className="gap-2">
+                  <a href="#contact">
+                    <Mail size={18} />
+                    Contact
+                  </a>
+                </Button>
+              </div>
+            </div>
+          </Card>
         </div>
       </div>
     </section>
