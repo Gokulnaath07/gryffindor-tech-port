@@ -81,17 +81,19 @@ All colors MUST be HSL.
 
   /* Pseudo element shows the cylindrical radial tint that follows the cursor */
   .interactive-section::before {
+    /* Isolate decorative layer: use fixed positioning so it doesn't create a 3D stacking
+       context on the scrolling container. Keep pointer-events none and push it behind content. */
     content: '';
-    position: absolute;
+    position: fixed;
     inset: 0;
     pointer-events: none;
-    z-index: 0;
+    z-index: -10;
     mix-blend-mode: screen;
     /* reduced radius and opacity for a subtler effect */
     background: radial-gradient(circle at var(--mouse-x) var(--mouse-y), rgba(212,175,55,0.18) 0%, rgba(212,175,55,0.08) 6%, transparent 12%);
     transition: background-color 160ms linear, opacity 160ms linear;
     will-change: background-position, opacity;
-    border-radius: inherit;
+    border-radius: 0; /* fixed layer spans whole viewport */
     animation: cylindrical-shift 8s linear infinite;
   }
 
@@ -124,6 +126,33 @@ All colors MUST be HSL.
     100% {
       transform: rotateY(0deg) translateZ(0);
       opacity: 0.92;
+    }
+  }
+
+  /* Reduce / disable heavy 3D effects on mobile and for users who prefer reduced motion */
+  @media (max-width: 768px), (prefers-reduced-motion: reduce) {
+    .interactive-section::before {
+      animation: none !important;
+      transform: none !important;
+      mix-blend-mode: normal;
+      background: linear-gradient(180deg, rgba(212,175,55,0.06), transparent 40%);
+      opacity: 0.6;
+    }
+  }
+
+  /* Ensure page content stacks above the decorative layer and isolate compositing
+     so mobile browsers cannot accidentally paint the fixed background above content. */
+  .page-content {
+    position: relative;
+    z-index: 1;
+    isolation: isolate;
+  }
+
+  /* On very short viewports (landscape phones, address-bar expanded), remove the
+     decorative layer entirely to avoid layout/scroll issues on low-end devices. */
+  @media (max-height: 700px) {
+    .interactive-section::before {
+      display: none;
     }
   }
 
