@@ -4,78 +4,116 @@ import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
 const Skills = () => {
   const skillCategories = [
-    // 1) Core programming first
+    // 1️⃣ Identity: Core engineering (above the fold)
     {
-      title: "Languages",
-      skills: ["Java", "TypeScript", "JavaScript", "Python", "SQL", "HTML", "CSS"],
-    },
-    // 2) Web/backend frameworks next
-    {
-      title: "Frameworks & Libraries",
-      skills: ["Spring Boot", "Flask", "React", "Next.js"],
-    },
-    // 3) AI/ML early to showcase interest and edge
-    {
-      title: "AI/ML",
+      title: "Core Backend Engineering",
       skills: [
-        "RAG",
-        "LLMs",
-        "scikit-learn",
-        "Dask (parallel)",
-        "Pandas",
-        "NumPy",
-        "Matplotlib",
-        "PyTorch",
-        "Logistic Regression",
-        "Random Forest",
-        "Decision Trees",
-        "RL (DQN)",
-        "SVM"
+        "Python (Flask, FastAPI)",
+        "Java (Spring Boot)",
+        "Node.js (Express)",
+        "REST API Design",
+        "Concurrency & Backpressure",
+        "Transactional Systems",
       ],
     },
-    // 4) Data layer
+
+    // 2️⃣ Data layer (paired with backend)
     {
-      title: "Databases",
-      skills: ["PostgreSQL", "MongoDB", "MySQL"],
+      title: "Databases & Storage",
+      skills: [
+        "PostgreSQL (Indexing, Pooling, Transactions)",
+        "MongoDB",
+        "MySQL",
+      ],
     },
-    // 4.1) Analytics & statistics tooling
+
+    // 3️⃣ Applied AI – your differentiator
     {
-      title: "Data Analysis & Statistics",
-      skills: ["IBM SPSS Statistics"],
+      title: "Applied AI & LLM Systems",
+      skills: [
+        "Retrieval-Augmented Generation (RAG)",
+        "OCR Ingestion & Document Parsing",
+        "Semantic & Section-based Chunking",
+        "Hybrid Retrieval (BM25 + Vector Search)",
+        "Embeddings",
+        "Citation-grounded Answers",
+        "Hallucination Mitigation",
+      ],
     },
-    // 5) Delivery & platform
+
+    // 4️⃣ Performance & reliability (big green flag)
+    {
+      title: "Performance & Reliability",
+      skills: [
+        "k6 Load Testing",
+        "Tail Latency (p95 / p99) Analysis",
+        "Throughput Optimization",
+        "Gunicorn Worker Tuning",
+        "Timeout & Saturation Failure Modes",
+      ],
+    },
+
+    // 5️⃣ ML foundations (kept, but de-emphasized)
+    {
+      title: "ML Foundations",
+      skills: [
+        "scikit-learn",
+        "PyTorch",
+        "Pandas",
+        "NumPy",
+        "Dask (Parallel Computing)",
+      ],
+    },
+
+    // 6️⃣ DevOps & deployment
     {
       title: "DevOps & Cloud",
-      skills: ["Docker", "GitHub Actions", "GitLab CI/CD", "AWS (RDS)", "Railway"],
+      skills: [
+        "Docker",
+        "GitHub Actions",
+        "GitLab CI/CD",
+        "AWS",
+        "Railway",
+      ],
     },
-    // 6) Source control separately
+
+    // 7️⃣ Testing & quality
     {
-      title: "Version Control",
-      skills: ["Git", "GitHub", "GitLab"],
+      title: "Testing & Tooling",
+      skills: [
+        "JUnit",
+        "Playwright",
+        "Selenium",
+        "Postman",
+        "Swagger / OpenAPI",
+      ],
     },
-    // 7) Quality
+
+    // 8️⃣ Frontend (supporting, not identity)
     {
-      title: "Testing & QA",
-      skills: ["JUnit", "Playwright", "Selenium", "Postman"],
+      title: "Frontend (Supporting)",
+      skills: [
+        "React",
+        "Next.js",
+        "TypeScript",
+        "HTML",
+        "CSS",
+      ],
     },
-    // 8) Practices
+
+    // 9️⃣ Platforms & extras (lowest priority)
     {
-      title: "Architecture & Practices",
-      skills: ["Agile (Scrum)", "Kanban", "CI/CD", "OOP", "RESTful APIs", "SDLC"],
+      title: "Platforms & Extras",
+      skills: [
+        "Android (Java)",
+        "Unity",
+        "Blender",
+      ],
     },
-    // 9) XR/3D (separate from AI/ML)
-    {
-      title: "XR/3D",
-      skills: ["Unity", "Blender"],
-    },
-    // 10) Platform specific (kept but lower priority)
-    {
-      title: "Mobile & Platforms",
-      skills: ["Android (Java)"]
-    }
   ];
 
   const { ref, isVisible } = useScrollAnimation<HTMLElement>(0.2);
+
   return (
     <section
       ref={ref}
@@ -88,11 +126,12 @@ const Skills = () => {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12 animate-fade-in">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Technical <span className="text-secondary">Skills</span>
+              Technical <span className="text-secondary">Expertise</span>
             </h2>
             <div className="w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto mb-4" />
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              A comprehensive toolkit for building secure, scalable, and performant applications
+              Backend and applied AI engineering focused on scalable APIs,
+              performance-critical systems, and production-ready LLM workflows.
             </p>
           </div>
 
