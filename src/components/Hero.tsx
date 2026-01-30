@@ -4,6 +4,7 @@ import { ArrowDown } from "lucide-react";
 import heroBg from "@/assets/hero-bg.jpg";
 import profileImage from "@/assets/profile.jpg";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
+import { smoothScrollTo } from "@/lib/utils";
 
 const Hero = () => {
   const { ref, isVisible } = useScrollAnimation(0.1);
@@ -26,7 +27,8 @@ const Hero = () => {
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+      // slower, controlled smooth scroll (duration in ms, offset for sticky headers)
+      smoothScrollTo(element, 2200, -64);
     }
   };
 
