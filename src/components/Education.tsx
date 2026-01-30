@@ -12,7 +12,7 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const Education = () => {
   const education = [
@@ -46,6 +46,38 @@ const Education = () => {
   ];
 
   const { ref, isVisible } = useScrollAnimation<HTMLElement>(0.2);
+  const [disableAnimations, setDisableAnimations] = useState(false);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const mqMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const mqMobile = window.matchMedia("(max-width: 768px)");
+    const check = () => setDisableAnimations(mqMotion.matches || mqMobile.matches);
+    check();
+    if (typeof mqMotion.addEventListener === "function") {
+      mqMotion.addEventListener("change", check);
+    } else if (typeof (mqMotion as any).addListener === "function") {
+      (mqMotion as any).addListener(check);
+    }
+    if (typeof mqMobile.addEventListener === "function") {
+      mqMobile.addEventListener("change", check);
+    } else if (typeof (mqMobile as any).addListener === "function") {
+      (mqMobile as any).addListener(check);
+    }
+
+    return () => {
+      if (typeof mqMotion.removeEventListener === "function") {
+        mqMotion.removeEventListener("change", check);
+      } else if (typeof (mqMotion as any).removeListener === "function") {
+        (mqMotion as any).removeListener(check);
+      }
+      if (typeof mqMobile.removeEventListener === "function") {
+        mqMobile.removeEventListener("change", check);
+      } else if (typeof (mqMobile as any).removeListener === "function") {
+        (mqMobile as any).removeListener(check);
+      }
+    };
+  }, []);
   return (
     <section
       ref={ref}
@@ -73,10 +105,10 @@ const Education = () => {
                     open={undefined}
                   >
                     <PopoverTrigger asChild>
-                      <Card
-                        className="p-6 border-l-4 border-l-secondary bg-card animate-fade-in hover:shadow-[0_0_20px_rgba(212,175,55,0.15)] transition-all duration-300 cursor-pointer"
-                        style={{ animationDelay: `${index * 150}ms` }}
-                      >
+                              <Card
+                                className={`p-6 border-l-4 border-l-secondary bg-card hover:shadow-[0_0_20px_rgba(212,175,55,0.15)] transition-all duration-300 cursor-pointer ${disableAnimations ? "" : "animate-fade-in"}`}
+                                style={disableAnimations ? undefined : { animationDelay: `${index * 150}ms` }}
+                              >
                         <div className="flex flex-col md:flex-row md:items-start md:justify-between">
                           <div className="flex items-start gap-3 mb-2 md:mb-0">
                             <div className="p-2 rounded-lg bg-secondary/10 mt-1">
