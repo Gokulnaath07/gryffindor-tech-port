@@ -61,6 +61,7 @@ All colors MUST be HSL.
 @layer base {
   * {
     border-color: hsl(var(--border));
+    transform-style: flat !important;
   }
 
   body {
@@ -94,7 +95,9 @@ All colors MUST be HSL.
     transition: background-color 160ms linear, opacity 160ms linear;
     will-change: background-position, opacity;
     border-radius: 0; /* fixed layer spans whole viewport */
-    animation: cylindrical-shift 8s linear infinite;
+    /* safer, GPU-friendly floating background animation (no 3D transforms) */
+    background: radial-gradient(120% 60% at var(--mouse-x) var(--mouse-y), rgba(212,175,55,0.18), rgba(212,175,55,0.08) 18%, transparent 40%);
+    animation: cylinder-float 10s ease-in-out infinite;
   }
 
   /* When the proximity detector marks the section as near, change the accent to red */
@@ -113,19 +116,18 @@ All colors MUST be HSL.
     color: var(--accent-color) !important;
   }
 
-  @keyframes cylindrical-shift {
+  @keyframes cylinder-float {
     0% {
-      transform: rotateY(0deg) translateZ(0);
-      opacity: 0.92;
+      background-position: 50% 40%;
+      opacity: 0.9;
     }
     50% {
-      /* much smaller rotation to keep effect subtle */
-      transform: rotateY(10deg) translateZ(3px);
-      opacity: 0.75;
+      background-position: 52% 45%;
+      opacity: 0.7;
     }
     100% {
-      transform: rotateY(0deg) translateZ(0);
-      opacity: 0.92;
+      background-position: 50% 40%;
+      opacity: 0.9;
     }
   }
 
