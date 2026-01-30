@@ -1,7 +1,7 @@
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { ExternalLink, FileText } from "lucide-react";
+import { Github, ExternalLink, FileText } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import { useEffect, useState } from "react";
 
@@ -30,13 +30,37 @@ const Projects = () => {
 
   const projects = [
     {
+      title: "Financial Document Intelligence & RAG System",
+      period: "Present",
+      description:
+        "Designed an API-first Retrieval-Augmented Generation (RAG) system for answering numeric- and clause-sensitive questions over financial documents such as tax forms, pay stubs, and lease agreements.",
+      metrics: [
+        "Citation-grounded answers",
+        "Hybrid retrieval (BM25 + vector)",
+        "OCR-based ingestion pipeline",
+        "Hallucination mitigation",
+      ],
+      tech: [
+        "Python",
+        "FastAPI",
+        "RAG",
+        "OCR",
+        "Embeddings",
+        "Hybrid Retrieval",
+        "Vector Search",
+        "PostgreSQL / Weaviate",
+      ],
+      githubUrl:
+        "https://github.com/Gokulnaath07/Financial_rag", 
+    },
+    {
       title: "State-of-the-Art NLP Model: BERT",
       period: "Nov 2025 – Dec 2025",
       description:
-        "Implemented a full NLP pipeline for sentiment classification on Twitter data. Compared classical ML models with deep learning approaches (LSTM, BERT). BERT achieved the best performance.",
+        "End-to-end NLP pipeline for Twitter sentiment analysis. Compared classical ML models with LSTM and BERT; BERT achieved the best performance.",
       metrics: [
         "End-to-end NLP pipeline",
-        "LogReg, DT, LSTM, BERT comparison",
+        "LogReg / DT / LSTM / BERT comparison",
         "Accuracy 84%, Weighted F1 0.84",
         "Handled short text & class imbalance",
       ],
@@ -56,10 +80,10 @@ const Projects = () => {
       title: "Multi-Disease Prediction + Doctor Matching",
       period: "Jan 2024 – Apr 2024",
       description:
-        "Built an end-to-end ML system to predict diseases and map them to doctor specialties. Exposed inference through REST APIs and integrated with an Android client.",
+        "Built an ML-driven system to predict diseases and map them to doctor specialties, exposed via REST APIs and integrated with Android.",
       metrics: [
         "End-to-end ML pipeline",
-        "Doctor-specialty matching",
+        "Doctor–specialty matching",
         "REST API inference",
         "Model comparison & selection",
       ],
@@ -78,9 +102,9 @@ const Projects = () => {
       title: "Navigation-Based Web Application",
       period: "Aug 2024 – Jun 2025",
       description:
-        "Full-stack navigation platform using Spring Boot REST APIs and PostgreSQL, deployed via Docker and Railway.",
+        "Full-stack navigation platform using Spring Boot REST APIs and PostgreSQL, deployed with Docker and Railway.",
       metrics: [
-        "+60% client-server efficiency",
+        "+60% client–server efficiency",
         "+50% query performance",
         "−60% deployment time",
       ],
@@ -100,7 +124,7 @@ const Projects = () => {
       title: "Game Character Balancing with ML & RL",
       period: "Jan 2025 – Apr 2025",
       description:
-        "Combined supervised learning models with a custom reinforcement learning environment using DQN to balance game characters.",
+        "Combined supervised learning with a custom reinforcement learning environment (DQN) to balance game characters.",
       metrics: [
         "88% classification accuracy",
         "35% reduction in win-rate variance",
@@ -120,11 +144,11 @@ const Projects = () => {
       title: "Hanni’s Home Tour – VR Escape Experience",
       period: "Jan 2024 – Apr 2024",
       description:
-        "VR-based escape-room experience built in Unity featuring procedural environments and interactive puzzles.",
+        "VR escape-room experience built in Unity with procedural environments and interactive puzzle mechanics.",
       metrics: [
         "Full VR immersion",
-        "Procedural environment generation",
-        "Interactive puzzle mechanics",
+        "Procedural generation",
+        "Interactive puzzles",
       ],
       tech: ["Unity", "Blender", "VR", "C#", "Procedural Generation"],
       driveUrl:
@@ -136,11 +160,11 @@ const Projects = () => {
       title: "Personal Portfolio Website",
       period: "Nov 2025 – Present",
       description:
-        "Built a personal portfolio to showcase projects, experience, and technical skills with a focus on performance and responsiveness.",
+        "Personal portfolio showcasing projects, experience, and skills with a focus on performance and clean UI.",
       metrics: [
         "Responsive design",
         "SEO optimization",
-        "Interactive UI elements",
+        "Accessible UI",
       ],
       tech: ["React", "Next.js", "Tailwind CSS", "JavaScript"],
       githubUrl:
@@ -152,9 +176,9 @@ const Projects = () => {
       description:
         "Production-ready task management backend with JWT-secured APIs, RBAC, and file uploads using PostgreSQL and MongoDB GridFS.",
       metrics: [
-        "JWT authentication + RBAC",
+        "JWT auth + RBAC",
         "CRUD with pagination & search",
-        "File uploads with GridFS",
+        "File uploads via GridFS",
       ],
       tech: [
         "Java",
@@ -170,9 +194,9 @@ const Projects = () => {
       title: "NYC Airbnb Price & Demand Modeling",
       period: "2024",
       description:
-        "Built ML models to predict listing prices and classify high-demand listings. Added time-series forecasting and interactive geospatial visualizations.",
+        "ML models for price prediction and demand classification with time-series forecasting and geospatial visualizations.",
       metrics: [
-        "Price prediction (RMSE / R²)",
+        "RMSE / R² evaluation",
         "Demand classification",
         "Interactive maps & heatmaps",
       ],
@@ -196,16 +220,9 @@ const Projects = () => {
       metrics: [
         "Reusable A* & BFS modules",
         "Heuristic optimization",
-        "Algorithm performance visualization",
+        "Performance visualization",
       ],
-      tech: [
-        "Python",
-        "A*",
-        "BFS",
-        "Pathfinding",
-        "Game AI",
-        "OOP",
-      ],
+      tech: ["Python", "A*", "BFS", "Game AI", "OOP"],
       githubUrl: "https://github.com/Gokulnaath07/Games",
     },
     {
@@ -225,7 +242,7 @@ const Projects = () => {
       title: "Spiderman Counter Web App",
       period: "2024",
       description:
-        "Fun interactive counter app inspired by Spider-Man with real-time DOM updates.",
+        "Fun interactive counter app with real-time DOM updates and themed styling.",
       metrics: [
         "Responsive UI",
         "DOM manipulation",
@@ -266,7 +283,9 @@ const Projects = () => {
               }
             >
               <div className="flex-1">
-                <h3 className="text-xl font-bold mb-1">{project.title}</h3>
+                <h3 className="text-xl font-bold mb-1">
+                  {project.title}
+                </h3>
                 <p className="text-sm text-secondary mb-3">
                   {project.period}
                 </p>
@@ -305,25 +324,27 @@ const Projects = () => {
                 </div>
               </div>
 
-              <div className="flex gap-2 mt-4">
+              <div className="flex gap-2 mt-4 justify-end">
                 {project.githubUrl && (
                   <Button
                     variant="outline"
-                    size="sm"
-                    className="flex-1"
+                    size="icon"
+                    aria-label="View source code on GitHub"
+                    title="View source code on GitHub"
                     onClick={() =>
                       window.open(project.githubUrl!, "_blank")
                     }
                   >
-                    Code
+                    <Github size={16} />
                   </Button>
                 )}
 
                 {project.githubUrlFrontend && (
                   <Button
                     variant="outline"
-                    size="sm"
-                    className="flex-1"
+                    size="icon"
+                    aria-label="View frontend code on GitHub"
+                    title="View frontend code"
                     onClick={() =>
                       window.open(
                         project.githubUrlFrontend!,
@@ -331,41 +352,39 @@ const Projects = () => {
                       )
                     }
                   >
-                    Frontend
+                    <Github size={16} />
                   </Button>
                 )}
 
-                {!project.githubUrl && project.driveUrl && (
-                  <>
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      className="flex-1"
-                      onClick={() =>
-                        window.open(project.driveUrl!, "_blank")
-                      }
-                    >
-                      <ExternalLink size={14} />
-                      Files
-                    </Button>
+                {project.driveUrl && (
+                  <Button
+                    variant="outline"
+                    size="icon"
+                    aria-label="Open project files"
+                    title="Project files"
+                    onClick={() =>
+                      window.open(project.driveUrl!, "_blank")
+                    }
+                  >
+                    <ExternalLink size={16} />
+                  </Button>
+                )}
 
-                    {project.caseStudyUrl && (
-                      <Button
-                        variant="outline"
-                        size="sm"
-                        className="flex-1"
-                        onClick={() =>
-                          window.open(
-                            project.caseStudyUrl!,
-                            "_blank"
-                          )
-                        }
-                      >
-                        <FileText size={14} />
-                        Case Study
-                      </Button>
-                    )}
-                  </>
+                {project.caseStudyUrl && (
+                  <Button
+                    variant="outline"
+                    size="icon"
+                    aria-label="Open case study"
+                    title="Case study"
+                    onClick={() =>
+                      window.open(
+                        project.caseStudyUrl!,
+                        "_blank"
+                      )
+                    }
+                  >
+                    <FileText size={16} />
+                  </Button>
                 )}
               </div>
             </Card>
