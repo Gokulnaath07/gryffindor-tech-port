@@ -1,41 +1,63 @@
 import { Card } from "@/components/ui/card";
-import { Server, Database, Container, TestTube2, Eye, Cloud } from "lucide-react";
+import {
+  Server,
+  Database,
+  Container,
+  TestTube2,
+  Cloud,
+  Gauge,
+  Brain,
+} from "lucide-react";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
 const Services = () => {
   const services = [
     {
       icon: Server,
-      title: "RESTful API Design",
-      description: "Secure authentication & authorization, scalable endpoint architecture",
+      title: "Backend API Architecture",
+      description:
+        "Designing secure, scalable backend APIs with clear contracts, authentication, authorization, and performance-aware endpoint structure.",
     },
     {
       icon: Database,
-      title: "Database Optimization",
-      description: "Schema design, query tuning, and performance enhancements",
+      title: "Data Modeling & Performance Tuning",
+      description:
+        "Schema design, indexing strategies, query optimization, and connection pool tuning for PostgreSQL-backed production systems.",
+    },
+    {
+      icon: Gauge,
+      title: "Performance & Load Testing",
+      description:
+        "Identifying bottlenecks through load testing, tail-latency (p95/p99) analysis, and concurrency tuning to keep systems stable under real traffic.",
     },
     {
       icon: Container,
-      title: "Dockerized Deployment",
-      description: "Containerization, orchestration, and production-ready configurations",
+      title: "Production-Ready Deployment",
+      description:
+        "Containerized services with Docker, repeatable builds, environment isolation, and deployment-safe configurations.",
     },
     {
       icon: TestTube2,
-      title: "CI/CD Integration",
-      description: "Automated pipelines with GitLab CI, GitHub Actions, and deployment automation",
+      title: "Reliability & Test Automation",
+      description:
+        "End-to-end testing with Playwright, shared authentication flows, and network assertions to prevent regressions before production.",
     },
     {
-      icon: Eye,
-      title: "E2E Test Scaffolding",
-      description: "Playwright test suites with shared auth and comprehensive coverage",
+      icon: Brain,
+      title: "Applied AI & RAG Systems",
+      description:
+        "Retrieval-Augmented Generation systems for document intelligence, including OCR ingestion, hybrid retrieval, citation-grounded answers, and hallucination mitigation.",
     },
     {
       icon: Cloud,
-      title: "Cloud Infrastructure",
-      description: "AWS RDS, Railway setup, and minimal observability hooks",
+      title: "Lightweight Cloud Infrastructure",
+      description:
+        "Pragmatic cloud setups using AWS RDS and Railway with minimal operational overhead and production-focused observability.",
     },
   ];
+
   const { ref, isVisible } = useScrollAnimation<HTMLElement>(0.2);
+
   return (
     <section
       ref={ref}
@@ -52,7 +74,8 @@ const Services = () => {
             </h2>
             <div className="w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto mb-4" />
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Backend development services focused on security, performance, and scalability
+              Backend and applied AI engineering focused on correctness,
+              performance, and production reliability.
             </p>
           </div>
 
@@ -70,7 +93,11 @@ const Services = () => {
                       <Icon className="text-secondary" size={24} />
                     </div>
                   </div>
-                  <h3 className="text-lg font-semibold mb-2 text-foreground">{service.title}</h3>
+
+                  <h3 className="text-lg font-semibold mb-2 text-foreground">
+                    {service.title}
+                  </h3>
+
                   <p className="text-sm text-muted-foreground leading-relaxed">
                     {service.description}
                   </p>
