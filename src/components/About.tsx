@@ -2,7 +2,7 @@ import { Card } from "@/components/ui/card";
 import { Shield, Database, Brain, AlertTriangle, Download, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
-import resumeUrl from "@/assets/Govindaraj_Resume_SWE.pdf";
+import resumeUrl from "@/assets/Govindaraj_Resume.pdf";
 
 const About = () => {
   const { ref, isVisible } = useScrollAnimation<HTMLElement>(0.2);
