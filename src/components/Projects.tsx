@@ -54,6 +54,31 @@ const Projects = () => {
         "https://github.com/Gokulnaath07/Financial_rag", 
     },
     {
+      title: "Accio Scheduler: Agentic Orchestration System",
+      period: "Feb 2026 - Present",
+      description:
+        "Developed an autonomous agentic pipeline to solve 75+ daily technical challenges. Engineered a self-healing architecture hosted on Hugging Face Spaces that manages complex state persistence and automated reporting via multi-channel API integration.",
+      metrics: [
+        "Cloud-native deployment via Hugging Face Spaces",
+        "8:00 AM Daily Cron-triggered execution",
+        "Self-healing state persistence via Supabase",
+        "Automated document generation (Word/Drive)",
+        "Real-time Twilio SMS/WhatsApp alerting",
+      ],
+      tech: [
+        "n8n",
+        "Hugging Face (Docker)",
+        "Gemini 2.0",
+        "Supabase",
+        "PostgreSQL",
+        "Twilio API",
+        "Google Workspace API",
+        "Automation Architectures",
+      ],
+      githubUrl:
+        "https://github.com/Gokulnaath07/accio_agentic_scheduler", 
+    },
+    {
       title: "State-of-the-Art NLP Model: BERT",
       period: "Nov 2025 – Dec 2025",
       description:
